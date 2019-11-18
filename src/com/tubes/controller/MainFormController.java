@@ -79,4 +79,16 @@ public class MainFormController {
     @FXML
     private void img12Click(MouseEvent mouseEvent) {
     }
+
+    public void img13Click(MouseEvent mouseEvent) {
+    }
+
+    public void img14Click(MouseEvent mouseEvent) {
+    }
+
+    public void img15Click(MouseEvent mouseEvent) {
+    }
+
+    public void img16Click(MouseEvent mouseEvent) {
+    }
 }
