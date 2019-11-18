@@ -40,7 +40,7 @@
       <HBox prefHeight="0.0" prefWidth="1173.0" VBox.vgrow="ALWAYS" />
       <ScrollPane prefHeight="811.0" prefWidth="1182.0">
          <content>
-            <TilePane fx:id="tilepane" alignment="CENTER" hgap="20.0" orientation="VERTICAL" prefHeight="1672.0" prefWidth="1165.0" vgap="150.0">
+            <TilePane fx:id="tilepane" alignment="TOP_CENTER" orientation="VERTICAL" prefHeight="1672.0" prefWidth="1177.0" vgap="100.0">
                <children>
                   <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img1Click" pickOnBounds="true" preserveRatio="true">
                      <image>

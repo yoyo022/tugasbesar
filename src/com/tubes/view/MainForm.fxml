@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -37,10 +39,17 @@
           </Menu>
         </menus>
       </MenuBar>
-      <HBox prefHeight="0.0" prefWidth="1173.0" VBox.vgrow="ALWAYS" />
+      <HBox prefHeight="0.0" prefWidth="1173.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="1176.0" text="BarSnack" textFill="#1a63d9">
+               <font>
+                  <Font name="Consolas Bold" size="45.0" />
+               </font>
+            </Label>
+         </children></HBox>
       <ScrollPane prefHeight="811.0" prefWidth="1182.0">
          <content>
-            <TilePane fx:id="tilepane" alignment="CENTER" hgap="20.0" orientation="VERTICAL" prefHeight="1672.0" prefWidth="1165.0" vgap="150.0">
+            <TilePane fx:id="tilepane" alignment="TOP_CENTER" orientation="VERTICAL" prefHeight="876.0" prefWidth="1165.0" vgap="100.0">
                <children>
                   <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img1Click" pickOnBounds="true" preserveRatio="true">
                      <image>
