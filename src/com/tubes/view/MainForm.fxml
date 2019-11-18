@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
@@ -14,7 +18,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1173.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.MainFormController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1173.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.MainFormController">
    <children>
       <MenuBar nodeOrientation="RIGHT_TO_LEFT">
         <menus>
@@ -36,63 +40,53 @@
       <HBox prefHeight="0.0" prefWidth="1173.0" VBox.vgrow="ALWAYS" />
       <ScrollPane prefHeight="811.0" prefWidth="1182.0">
          <content>
-            <TilePane alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+            <TilePane fx:id="tilepane" alignment="CENTER" hgap="20.0" orientation="VERTICAL" prefHeight="1672.0" prefWidth="1165.0" vgap="150.0">
                <children>
-                  <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1486.0" prefWidth="1160.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints maxHeight="176.0" minHeight="10.0" prefHeight="176.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="190.0" minHeight="0.0" prefHeight="170.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="176.0" minHeight="0.0" prefHeight="152.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="254.0" minHeight="0.0" prefHeight="254.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="208.0" minHeight="0.0" prefHeight="56.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="177.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img1Click" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../img/cocacola.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img2Click" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <image>
-                              <Image url="@../img/sprite.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="img3" fitHeight="184.0" fitWidth="182.0" onMouseClicked="#img3Click" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../img/pepsi.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img4Click" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@../img/fantaorange.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="img5" fitHeight="156.0" fitWidth="255.0" onMouseClicked="#img5Click" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="8">
-                           <image>
-                              <Image url="@../img/minutemaidpulpy.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="img6" fitHeight="174.0" fitWidth="261.0" onMouseClicked="#img6Click" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
-                           <image>
-                              <Image url="@../img/minutemaidpulpygrape.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img7Click" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
-                        <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img8Click" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <ImageView fx:id="img9" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img9Click" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4" />
-                        <ImageView fx:id="img10" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img10Click" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <ImageView fx:id="img11" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img11Click" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5" />
-                        <ImageView fx:id="img12" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img12Click" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                     </children>
-                  </GridPane>
+                  <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img1Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/cocacola.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img2Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/sprite.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img3" fitHeight="184.0" fitWidth="182.0" onMouseClicked="#img3Click" pickOnBounds="true" preserveRatio="true" TilePane.alignment="CENTER">
+                     <image>
+                        <Image url="@../img/pepsi.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img4Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/fantaorange.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img5" fitHeight="156.0" fitWidth="255.0" onMouseClicked="#img5Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/minutemaidpulpy.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img6" fitHeight="174.0" fitWidth="261.0" onMouseClicked="#img6Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/minutemaidpulpygrape.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img11Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/minutemaidpulpyapple.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img12Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/ades.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img81" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img12Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/bengbeng.png" />
+                     </image>
+                  </ImageView>
                </children>
             </TilePane>
          </content>
