@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1173.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.MainFormController">
+   <children>
+      <MenuBar nodeOrientation="RIGHT_TO_LEFT">
+        <menus>
+          <Menu mnemonicParsing="false" text="Setting">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+               <graphic>
+                  <MenuButton mnemonicParsing="false">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+               </graphic>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="0.0" prefWidth="1173.0" VBox.vgrow="ALWAYS" />
+      <ScrollPane prefHeight="811.0" prefWidth="1182.0">
+         <content>
+            <TilePane fx:id="tilepane" alignment="CENTER" hgap="20.0" orientation="VERTICAL" prefHeight="1672.0" prefWidth="1165.0" vgap="150.0">
+               <children>
+                  <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img1Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/cocacola.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img2Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/sprite.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img3" fitHeight="184.0" fitWidth="182.0" onMouseClicked="#img3Click" pickOnBounds="true" preserveRatio="true" TilePane.alignment="CENTER">
+                     <image>
+                        <Image url="@../img/pepsi.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img4" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img4Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/fantaorange.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img5" fitHeight="156.0" fitWidth="255.0" onMouseClicked="#img5Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/minutemaidpulpy.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img6" fitHeight="174.0" fitWidth="261.0" onMouseClicked="#img6Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/minutemaidpulpygrape.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img7" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img11Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/minutemaidpulpyapple.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img8" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img12Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/ades.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="img81" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#img12Click" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/bengbeng.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </TilePane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
