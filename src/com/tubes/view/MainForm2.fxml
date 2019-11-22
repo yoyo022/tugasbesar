@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="760.0" prefWidth="1099.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.MainFormController">
+   <center>
+      <ScrollPane prefHeight="695.0" prefWidth="870.0" BorderPane.alignment="CENTER">
+         <content>
+            <TilePane fx:id="tilePane" alignment="TOP_CENTER" orientation="VERTICAL" prefHeight="1046.0" prefWidth="1165.0" vgap="100.0" />
+         </content>
+      </ScrollPane>
+   </center>
+   <top>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="1176.0" text="SnackBar" textFill="#030303" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Consolas Bold" size="45.0" />
+         </font>
+      </Label>
+   </top>
+   <right>
+      <VBox alignment="BOTTOM_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="715.0" prefWidth="334.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="vBoxx" alignment="TOP_CENTER" prefHeight="682.0" prefWidth="334.0" />
+            <TilePane alignment="TOP_CENTER" prefHeight="744.0" prefWidth="334.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="350.0" prefWidth="303.0" TilePane.alignment="TOP_CENTER">
+                     <children>
+                        <ImageView fitHeight="60.0" fitWidth="140.0" nodeOrientation="INHERIT" onDragOver="#dropMoney" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
+                        <TilePane fx:id="tilePaneMoney" prefHeight="279.0" prefWidth="293.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding></TilePane>
+            <Label alignment="BOTTOM_RIGHT" text="Design by 1772003 &amp; 1772009" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>
