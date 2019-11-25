@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -15,7 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -248,7 +251,7 @@ public class MainFormController implements Initializable {
             alert.setContentText("Uang yang dimasukkan tidak cukup untuk melakukan transaksi");
             alert.showAndWait();
         }else{
-
+            pembayaran(nilaiMoney);
         }
     }
 
@@ -273,6 +276,10 @@ public class MainFormController implements Initializable {
         tilePane.setPadding(new Insets(7));
         tilePane.setHgap(15);
         tilePane.setVgap(15);
+        VBox vbox = new VBox();
+        vbox.setAlignment(Pos.CENTER);
+
+        double kembalian = uang;
 
         int duit100rb = (int) uang/100000;
         uang = uang%100000;
@@ -296,5 +303,55 @@ public class MainFormController implements Initializable {
             imgView.setFitWidth(140);
             tilePane.getChildren().add(imgView);
         }
+        for(int i=0;i<duit50rb; i++){
+            Image image = new Image("../src/com/tubes/img/duit/limapuluhrb.png");
+            ImageView imgView = new ImageView(image);
+            imgView.setFitHeight(60);
+            imgView.setFitWidth(140);
+            tilePane.getChildren().add(imgView);
+        }
+        for(int i=0;i<duit20rb; i++){
+            Image image = new Image("../src/com/tubes/img/duit/duapuluhrb.png");
+            ImageView imgView = new ImageView(image);
+            imgView.setFitHeight(60);
+            imgView.setFitWidth(140);
+            tilePane.getChildren().add(imgView);
+        }
+        for(int i=0;i<duit10rb; i++){
+            Image image = new Image("../src/com/tubes/img/duit/sepuluhrb.png");
+            ImageView imgView = new ImageView(image);
+            imgView.setFitHeight(60);
+            imgView.setFitWidth(140);
+            tilePane.getChildren().add(imgView);
+        }
+        for(int i=0;i<duit5rb; i++){
+            Image image = new Image("../src/com/tubes/img/duit/limarb.png");
+            ImageView imgView = new ImageView(image);
+            imgView.setFitHeight(60);
+            imgView.setFitWidth(140);
+            tilePane.getChildren().add(imgView);
+        }
+        for(int i=0;i<duit2rb; i++){
+            Image image = new Image("../src/com/tubes/img/duit/duarb.png");
+            ImageView imgView = new ImageView(image);
+            imgView.setFitHeight(60);
+            imgView.setFitWidth(140);
+            tilePane.getChildren().add(imgView);
+        }
+        for(int i=0;i<duit1rb; i++){
+            Image image = new Image("../src/com/tubes/img/duit/seribu.png");
+            ImageView imgView = new ImageView(image);
+            imgView.setFitHeight(60);
+            imgView.setFitWidth(140);
+            tilePane.getChildren().add(imgView);
+        }
+
+        vbox.getChildren().add(tilePane);
+        Button button = new Button("Silahkan ambil kembalian : Rp." + Double.toString(uang) +", Terima Kasih");
+        button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Stage stage = (Stage) vbox.getScene().getWindow();
+        });
+        vbox.getChildren().add(button);
+
     }
 }
