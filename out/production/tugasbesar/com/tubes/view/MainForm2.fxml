@@ -25,7 +25,7 @@
    <center>
       <ScrollPane prefHeight="695.0" prefWidth="870.0" BorderPane.alignment="CENTER">
          <content>
-            <TilePane fx:id="tilePane" alignment="TOP_CENTER" orientation="VERTICAL" prefHeight="1046.0" prefWidth="1165.0" vgap="100.0" />
+            <TilePane fx:id="tilePane" orientation="VERTICAL" prefHeight="1046.0" prefWidth="753.0" tileAlignment="TOP_LEFT" vgap="100.0" />
          </content>
       </ScrollPane>
    </center>
@@ -37,15 +37,28 @@
       </Label>
    </top>
    <right>
-      <VBox alignment="BOTTOM_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="715.0" prefWidth="334.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="715.0" prefWidth="334.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="vBoxx" alignment="TOP_CENTER" prefHeight="682.0" prefWidth="334.0" />
-            <TilePane alignment="TOP_CENTER" prefHeight="744.0" prefWidth="334.0" VBox.vgrow="ALWAYS">
+            <VBox fx:id="vBoxx" alignment="TOP_CENTER" prefHeight="202.0" prefWidth="324.0" />
+            <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="324.0" spacing="20.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="350.0" prefWidth="303.0" TilePane.alignment="TOP_CENTER">
+                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#btnCancel" prefHeight="14.0" prefWidth="59.0" text="Cancel" />
+                  <Button fx:id="buy" mnemonicParsing="false" onAction="#btnBuy" prefHeight="14.0" prefWidth="59.0" text="    Buy   " />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <TilePane fx:id="tilePaneTest" alignment="TOP_CENTER" disable="true" prefHeight="315.0" prefWidth="324.0" scaleShape="false">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="405.0" prefWidth="303.0" TilePane.alignment="TOP_CENTER">
                      <children>
-                        <ImageView fitHeight="60.0" fitWidth="140.0" nodeOrientation="INHERIT" onDragOver="#dropMoney" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
-                        <TilePane fx:id="tilePaneMoney" prefHeight="279.0" prefWidth="293.0" />
+                        <ImageView fx:id="imgViewMoney2" fitHeight="70.0" fitWidth="180.0" onDragDropped="#dropMoney" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <TilePane fx:id="tilePaneMoney" onDragOver="#handleDragOver2" prefHeight="282.0" prefWidth="293.0" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

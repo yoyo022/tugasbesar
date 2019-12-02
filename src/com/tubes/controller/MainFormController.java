@@ -2,11 +2,13 @@ package com.tubes.controller;
 
 import com.tubes.dao.ItemsDaoImpl;
 import com.tubes.entity.ItemEntity;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -38,27 +40,17 @@ public class MainFormController implements Initializable {
     @FXML
     private TilePane tilePaneMoney;
     private int moneyId = 1;
+    private VBox vBox3 = new VBox();
+    @FXML
+    private ImageView imgViewMoney2;
+    @FXML
+    private TilePane tilePaneTest;
+    @FXML
+    private Button cancel;
+    @FXML
+    private Button buy;
 
-    public ImageView buatMoney(String url){
-        Image img = new Image("File:src/" + url);
-        ImageView imgView = new ImageView(img);
-        imgView.setId(String.valueOf(moneyId));
-        imgView.setFitWidth(120);
-        imgView.setFitHeight(40);
-        imgView.setOnDragDetected(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Dragboard dragboard = imgView.startDragAndDrop(TransferMode.ANY);
-                ClipboardContent clipboardContent = new ClipboardContent();
-                clipboardContent.putImage(imgView.getImage());
-                dragboard.setContent(clipboardContent);
-                event.consume();
-            }
-        });
-        moneyId+=1;
-        return imgView;
-    }
-
+    //Isi list gambar uang
     public List<String> getMoney() {
         money.add("../src/com/tubes/img/duit/seratusribu.png");
         money.add("../src/com/tubes/img/duit/limapuluhrb.png");
@@ -69,7 +61,7 @@ public class MainFormController implements Initializable {
         money.add("../src/com/tubes/img/duit/seribu.png");
         return money;
     }
-
+    //Pembungkus Uangnya
     public VBox buatVBoxMoney(ImageView imgView){
         VBox vBox = new VBox();
         vBox.setStyle("-fx-border-width: 1px");
@@ -78,14 +70,14 @@ public class MainFormController implements Initializable {
         return vBox;
     }
 
-
+    //Mengambil item dari database
     public ItemsDaoImpl getItemsDao() {
         if(itemsDao == null){
             itemsDao = new ItemsDaoImpl();
         }
         return itemsDao;
     }
-
+    //Mengambil item
     public List<ItemEntity> getItemEntities() {
         if(itemEntities == null){
             itemEntities = new ArrayList<>();
@@ -93,7 +85,7 @@ public class MainFormController implements Initializable {
         }
         return itemEntities;
     }
-
+    //Membuat image untuk item
     private ImageView buatImage(String photo){
         Image image = new Image("File:" + photo);
         ImageView imageView = new ImageView(image);
@@ -101,20 +93,21 @@ public class MainFormController implements Initializable {
         imageView.setFitWidth(100);
         return imageView;
     }
-
+    //Membuat label quantity
     private Label buatQuantityLabel(int quantity){
         Label label = new Label();
         label.setText(String.valueOf(quantity));
         label.setAlignment(Pos.CENTER);
         return label;
     }
+    //membuat label harga
     private Label buatHargaLabel(double harga){
         Label label = new Label();
         label.setText(Double.toString(harga));
         label.setAlignment(Pos.CENTER);
         return label;
     }
-
+    //membuat label nama
     private Label buatNamaLabel(String nama){
         Label label = new Label();
         label.setText(nama);
@@ -122,11 +115,24 @@ public class MainFormController implements Initializable {
         return label;
     }
 
-    private TilePane tilePane2(){
-        TilePane tilePanes = new TilePane();
-        return tilePanes;
+    //Membuat imageview uang
+    public ImageView buatMoney(String url){
+        Image img = new Image("File:src/" + url);
+        ImageView imgView = new ImageView(img);
+        imgView.setId(String.valueOf(moneyId));
+        imgView.setFitWidth(120);
+        imgView.setFitHeight(50);
+        imgView.setOnDragDetected(event -> {
+            Dragboard dragboard = imgView.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent clipboardContent = new ClipboardContent();
+            clipboardContent.putImage(imgView.getImage());
+            dragboard.setContent(clipboardContent);
+            event.consume();
+        });
+        moneyId+=1;
+        return imgView;
     }
-
+    //Membuat vbox getAllItem (All Item)
     private VBox makingVBox(ItemEntity item, Label namaLabel, Label hargaLabel, ImageView imgView, Label quantity){
         VBox vBox = new VBox();
         String simpenId = "item"+ item.toString();
@@ -139,7 +145,7 @@ public class MainFormController implements Initializable {
         vBox.getChildren().add(3,quantity);
         vBox.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             setItemSelected(item);
-            boolean check = beliItem();
+            boolean check = oneItemSelected();
             if(check){
                 if(itemSelected.getQuantity() <= 1) {
                     vBox.setDisable(true);
@@ -158,48 +164,43 @@ public class MainFormController implements Initializable {
         });
         return vBox;
     }
-
+    //Membuat vbox getOneItem
     private VBox makingVBox2(ItemEntity item, Label namaLabel, Label hargaLabel, ImageView imgView){
-        VBox vBox = new VBox();
         String simpenId = "item"+ item.toString();
-        vBox.setId(simpenId);
-        vBox.setAlignment(Pos.CENTER);
-        vBox.setStyle("-fx-border-width: 1px; -fx-background-color: white;");
-        vBox.getChildren().add(0,imgView);
-        vBox.getChildren().add(1,namaLabel);
-        vBox.getChildren().add(2,hargaLabel);
+        vBox3.getChildren().clear();
+        vBox3.getChildren().clear();
+        vBox3.getChildren().clear();
+        vBox3.setId(simpenId);
+        vBox3.setAlignment(Pos.CENTER);
+        vBox3.setStyle("-fx-border-width: 1px; -fx-background-color: white;");
+        vBox3.getChildren().add(0,imgView);
+        vBox3.getChildren().add(1,namaLabel);
+        vBox3.getChildren().add(2,hargaLabel);
 
-        return vBox;
+        return vBox3;
     }
 
-    private boolean beliItem(){
-        boolean submitPembelian = false;
+    //Proses Memilih item (getOneItem)
+    private boolean oneItemSelected(){
+        boolean selected = false;
         if(getItemSelected() == null){
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Kesalahan dalam pembelian");
-            alert.setContentText("Silahkan pilih item yang ingin dibeli");
-            alert.showAndWait();
         }
         else{
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Konfirmasi Pembelian");
-            alert.setContentText("Anda akan membeli "+ getItemSelected().getNama() + ". \nTekan OK jika setuju");
-            Optional<ButtonType> buttonResult= alert.showAndWait();
-            if(buttonResult.get() == ButtonType.OK){
-                submitPembelian = true;
+                selected = true;
                 Label namaLabel = buatNamaLabel(getItemSelected().getNama());
                 ImageView imgView = buatImage(getItemSelected().getFoto());
                 Label hrgLabel = buatHargaLabel(getItemSelected().getHarga());
-                Label quantityLabel = buatQuantityLabel(getItemSelected().getQuantity());
                 VBox vBox = makingVBox2(getItemSelected(), namaLabel, hrgLabel,imgView);
                 vBoxx.getChildren().add(vBox);
             }
-        }
-        return submitPembelian;
+//        }
+        return selected;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        imgViewMoney2.setStyle("-fx-border-width: 1px; -fx-border-color: black;");
+        tilePaneTest.setVisible(false);
         itemEntities = getItemEntities();
         for(ItemEntity item : itemEntities){
             ImageView imgView = buatImage(item.getFoto());
@@ -230,20 +231,23 @@ public class MainFormController implements Initializable {
     public void setItemSelected(ItemEntity itemSelected) {
         this.itemSelected = itemSelected;
     }
-
+    //Drop image money
     @FXML
     private void dropMoney(DragEvent event) {
+//      masih ada yg salah
+//      Masih ada yang salah
+//        masih ada yang salah
         ImageView imgView = (ImageView) event.getGestureSource();
         double nilaiMoney = 0;
         String idMoney = imgView.getId();
         switch (idMoney){
-            case "1" :{nilaiMoney=100000; break;}
-            case "2" :{nilaiMoney=50000; break;}
-            case "3" :{nilaiMoney=20000; break;}
-            case "4" :{nilaiMoney=10000; break;}
-            case "5" :{nilaiMoney=5000; break;}
-            case "6" :{nilaiMoney=2000; break;}
-            case "7" :{nilaiMoney=1000; break;}
+            case "1" :{nilaiMoney=100000; imgViewMoney2.setImage(imgView.getImage()); break;}
+            case "2" :{nilaiMoney=50000; imgViewMoney2.setImage(imgView.getImage()); break;}
+            case "3" :{nilaiMoney=20000; imgViewMoney2.setImage(imgView.getImage()); break;}
+            case "4" :{nilaiMoney=10000; imgViewMoney2.setImage(imgView.getImage()); break;}
+            case "5" :{nilaiMoney=5000; imgViewMoney2.setImage(imgView.getImage()); break;}
+            case "6" :{nilaiMoney=2000; imgViewMoney2.setImage(imgView.getImage()); break;}
+            case "7" :{nilaiMoney=1000; imgViewMoney2.setImage(imgView.getImage()); break;}
         }
         if(nilaiMoney < getItemSelected().getHarga()){
             alert = new Alert(Alert.AlertType.ERROR);
@@ -254,7 +258,7 @@ public class MainFormController implements Initializable {
             pembayaran(nilaiMoney);
         }
     }
-
+    //Proses Pembelian
     private void pembayaran(double uang){
         ItemsDaoImpl itemsDao = new ItemsDaoImpl();
         getItemSelected().setQuantity(getItemSelected().getQuantity()-1);
@@ -267,6 +271,16 @@ public class MainFormController implements Initializable {
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Terimakasih sudah membeli " + getItemSelected().getNama());
             alert.show();
+        }
+    }
+    //Menentukan jumlah lembar uang kembalian
+    private void loopingKembalian(String url, int duit){
+        for(int i=0;i<duit; i++){
+            Image image = new Image(url);
+            ImageView imgView = new ImageView(image);
+            imgView.setFitHeight(60);
+            imgView.setFitWidth(140);
+            tilePane.getChildren().add(imgView);
         }
     }
 
@@ -296,62 +310,62 @@ public class MainFormController implements Initializable {
         int duit1rb = (int) uang/1000;
         uang = uang%1000;
 
-        for(int i=0;i<duit100rb; i++){
-            Image image = new Image("../src/com/tubes/img/duit/seratusribu.png");
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(60);
-            imgView.setFitWidth(140);
-            tilePane.getChildren().add(imgView);
-        }
-        for(int i=0;i<duit50rb; i++){
-            Image image = new Image("../src/com/tubes/img/duit/limapuluhrb.png");
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(60);
-            imgView.setFitWidth(140);
-            tilePane.getChildren().add(imgView);
-        }
-        for(int i=0;i<duit20rb; i++){
-            Image image = new Image("../src/com/tubes/img/duit/duapuluhrb.png");
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(60);
-            imgView.setFitWidth(140);
-            tilePane.getChildren().add(imgView);
-        }
-        for(int i=0;i<duit10rb; i++){
-            Image image = new Image("../src/com/tubes/img/duit/sepuluhrb.png");
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(60);
-            imgView.setFitWidth(140);
-            tilePane.getChildren().add(imgView);
-        }
-        for(int i=0;i<duit5rb; i++){
-            Image image = new Image("../src/com/tubes/img/duit/limarb.png");
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(60);
-            imgView.setFitWidth(140);
-            tilePane.getChildren().add(imgView);
-        }
-        for(int i=0;i<duit2rb; i++){
-            Image image = new Image("../src/com/tubes/img/duit/duarb.png");
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(60);
-            imgView.setFitWidth(140);
-            tilePane.getChildren().add(imgView);
-        }
-        for(int i=0;i<duit1rb; i++){
-            Image image = new Image("../src/com/tubes/img/duit/seribu.png");
-            ImageView imgView = new ImageView(image);
-            imgView.setFitHeight(60);
-            imgView.setFitWidth(140);
-            tilePane.getChildren().add(imgView);
-        }
+        loopingKembalian("../src/com/tubes/img/duit/seratusribu.png",duit100rb);
+        loopingKembalian("../src/com/tubes/img/duit/limapuluhrb.png",duit50rb);
+        loopingKembalian("../src/com/tubes/img/duit/duapuluhrb.png",duit20rb);
+        loopingKembalian("../src/com/tubes/img/duit/sepuluhrb.png",duit10rb);
+        loopingKembalian("../src/com/tubes/img/duit/limarb.png",duit5rb);
+        loopingKembalian("../src/com/tubes/img/duit/duarb.png",duit2rb);
+        loopingKembalian("../src/com/tubes/img/duit/seribu.png",duit1rb);
 
         vbox.getChildren().add(tilePane);
         Button button = new Button("Silahkan ambil kembalian : Rp." + Double.toString(uang) +", Terima Kasih");
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             Stage stage = (Stage) vbox.getScene().getWindow();
+            stage.close();
         });
         vbox.getChildren().add(button);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(vbox));
+        stage.show();
+    }
 
+    @FXML
+    private void handleDragOver(DragEvent event) {
+        if (event.getDragboard().hasImage()){
+        event.acceptTransferModes(TransferMode.ANY);}
+    }
+
+    @FXML
+    private void handleDragOver2(DragEvent event) {
+        if (event.getDragboard().hasImage()){
+            event.acceptTransferModes(TransferMode.ANY);}
+    }
+
+    @FXML
+    private void btnCancel(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    private void btnBuy(ActionEvent actionEvent) {
+        if (getItemSelected() == null) {
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Kesalahan dalam pembelian");
+            alert.setContentText("Silahkan pilih item yang ingin dibeli");
+            alert.showAndWait();
+        } else {
+            alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Konfirmasi Pembelian");
+            alert.setContentText("Anda akan membeli " + getItemSelected().getNama() + ". \nTekan OK jika setuju");
+            Optional<ButtonType> buttonResult = alert.showAndWait();
+            if (buttonResult.get() == ButtonType.OK) {
+                tilePane.setDisable(true);
+                tilePaneTest.setDisable(false);
+                tilePaneTest.setVisible(true);
+                buy.setDisable(true);
+                cancel.setDisable(true);
+//                pembayaran(getItemSelected().getHarga());
+            }
+        }
     }
 }
