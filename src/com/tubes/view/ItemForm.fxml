@@ -7,9 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.ItemFormController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.ItemFormController">
    <children>
-      <GridPane prefHeight="245.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <GridPane prefHeight="334.0" prefWidth="590.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -23,13 +23,35 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Label" />
-            <Label text="Label" GridPane.rowIndex="1" />
-            <Label text="Label" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Nama Item" />
+            <Label text="Harga" GridPane.rowIndex="1" />
+            <Label text="Kategori" GridPane.rowIndex="2" />
+            <TextField fx:id="txtNamaItem" GridPane.columnIndex="1" />
+            <TextField fx:id="txtHarga" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="comboCat" prefHeight="31.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Foto" GridPane.rowIndex="3" />
+            <Button fx:id="btnOpenFile" mnemonicParsing="false" onAction="#openFileAct" prefHeight="25.0" prefWidth="95.0" text="Open File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="285.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveAct" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#resetAct" text="Reset" />
+                  <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#updateAct" text="Update" />
+                  <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteAct" text="Delete" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </HBox>
          </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
       </GridPane>
    </children>
    <padding>

@@ -24,7 +24,7 @@
             <Label text="Username" />
             <Label text="Password" GridPane.rowIndex="1" />
             <TextField fx:id="txtUser" GridPane.columnIndex="1" />
-            <TextField fx:id="txtzPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <children>
                   <Button mnemonicParsing="false" onAction="#btnLogin" text="Login" />
