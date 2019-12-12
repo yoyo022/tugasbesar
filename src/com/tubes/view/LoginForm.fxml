@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.LoginFormController">
    <children>
       <GridPane prefHeight="135.0" prefWidth="479.0">
@@ -24,10 +23,9 @@
             <Label text="Username" />
             <Label text="Password" GridPane.rowIndex="1" />
             <TextField fx:id="txtUser" GridPane.columnIndex="1" />
-            <TextField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnLogin" text="Login" />
+                  <Button fx:id="login" mnemonicParsing="false" onAction="#btnLogin" text="Login" />
                   <Button mnemonicParsing="false" onAction="#btnCancel" text="Cancel" />
                </children>
                <padding>
@@ -37,6 +35,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </HBox>
+            <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

@@ -44,10 +44,11 @@ public class ItemsDaoImpl implements DaoService<ItemEntity> {
         try {
             session.update(object);
             transaction.commit();
-            result=1;
+            result = 1;
         }catch (HibernateException e){
             transaction.rollback();
         }
+        session.close();
         return result;
     }
 

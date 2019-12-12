@@ -58,7 +58,8 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </ImageView>
-                        <TilePane fx:id="tilePaneMoney" onDragOver="#handleDragOver2" prefHeight="282.0" prefWidth="293.0" />
+                        <TilePane fx:id="tilePaneMoney" prefHeight="248.0" prefWidth="293.0" />
+                        <TilePane fx:id="tilePaneKembalian" prefHeight="68.0" prefWidth="293.0" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
