@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -17,6 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,6 +37,10 @@ public class LoginFormController implements Initializable {
     private Alert alert;
     @FXML
     private Button login;
+    private MainFormController  mainFormController;
+    private Parent scene;
+    @FXML
+    private VBox loginVbox;
 
     public List<UserEntity> getUserEntities() {
         if (userEntities == null){
@@ -53,7 +59,6 @@ public class LoginFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     @FXML
@@ -74,15 +79,16 @@ public class LoginFormController implements Initializable {
                             FXMLLoader loader = new FXMLLoader();
                             loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
                             VBox root = loader.load();
-
                             Stage stage = new Stage();
                             stage.setResizable(false);
                             stage.setTitle("Item Form");
                             stage.setScene(new Scene(root));
+                            stage.initModality(Modality.APPLICATION_MODAL);
                             stage.show();
-
-//                            Stage primaryStage = (Stage) login.getScene().getWindow();
-//                            primaryStage.close();
+                            txtUser.clear();
+                            txtPassword.clear();
+                            Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+                            loginStage.close();
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -109,6 +115,12 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void btnCancel(ActionEvent actionEvent) {
-        Platform.exit();
+        Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+        loginStage.close();
     }
+
+    public void setMainFormController(MainFormController mainFormController) {
+        this.mainFormController = mainFormController;
+    }
+
 }

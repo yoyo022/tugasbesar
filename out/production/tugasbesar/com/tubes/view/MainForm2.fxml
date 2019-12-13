@@ -25,7 +25,7 @@
    <center>
       <ScrollPane prefHeight="695.0" prefWidth="870.0" BorderPane.alignment="CENTER">
          <content>
-            <TilePane fx:id="tilePane" orientation="VERTICAL" prefHeight="1046.0" prefWidth="753.0" tileAlignment="TOP_LEFT" vgap="100.0" />
+            <TilePane fx:id="tilePane" orientation="VERTICAL" prefHeight="1046.0" prefWidth="753.0" tileAlignment="TOP_LEFT" vgap="10.0" />
          </content>
       </ScrollPane>
    </center>
@@ -69,7 +69,7 @@
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding></TilePane>
-            <Label alignment="BOTTOM_RIGHT" text="Design by 1772003 &amp; 1772009" />
+            <Label alignment="BOTTOM_RIGHT" onMouseClicked="#loginAct" text="Design by 1772003 &amp; 1772009" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

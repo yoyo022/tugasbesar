@@ -1,13 +1,20 @@
 package com.tubes.controller;
 
+import com.tubes.Main;
+import com.tubes.dao.CategoriesDaoImpl;
 import com.tubes.dao.ItemsDaoImpl;
+import com.tubes.entity.CategoryEntity;
 import com.tubes.entity.ItemEntity;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,10 +23,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,6 +41,8 @@ public class MainFormController implements Initializable {
     @FXML
     private TilePane tilePane;
     private ItemsDaoImpl itemsDao;
+    private CategoriesDaoImpl categoriesDao;
+    private ObservableList<CategoryEntity>  categoryEntities;
     private List<ItemEntity> itemEntities;
     private List<String> money = new ArrayList<>();
     private ItemEntity itemSelected;
@@ -71,6 +83,7 @@ public class MainFormController implements Initializable {
         vBox.getChildren().add(0,imgView);
         return vBox;
     }
+
 
     //Mengambil item dari database
     public ItemsDaoImpl getItemsDao() {
@@ -138,7 +151,7 @@ public class MainFormController implements Initializable {
         return imgView;
     }
     //Membuat vbox getAllItem (All Item)
-    private VBox makingVBox(ItemEntity item, Label namaLabel, Label hargaLabel, ImageView imgView, Label quantity){
+    private VBox makingVBox(ItemEntity item, Label namaLabel, Label hargaLabel, ImageView imgView, Label qtyLabel){
         VBox vBox = new VBox();
         String simpenId = "item"+ item.toString();
         vBox.setId(simpenId);
@@ -147,7 +160,7 @@ public class MainFormController implements Initializable {
         vBox.getChildren().add(0,imgView);
         vBox.getChildren().add(1,namaLabel);
         vBox.getChildren().add(2,hargaLabel);
-        vBox.getChildren().add(3,quantity);
+        vBox.getChildren().add(3,qtyLabel);
         vBox.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             setItemSelected(item);
             boolean check = oneItemSelected();
@@ -189,13 +202,14 @@ public class MainFormController implements Initializable {
         if(getItemSelected() == null){
         }
         else{
-                selected = true;
-                Label namaLabel = buatNamaLabel(getItemSelected().getNama());
-                ImageView imgView = buatImage(getItemSelected().getFoto());
-                Label hrgLabel = buatHargaLabel(getItemSelected().getHarga());
-                VBox vBox = makingVBox2(getItemSelected(), namaLabel, hrgLabel,imgView);
-                vBoxx.getChildren().add(vBox);
-            }
+            vBoxx.getChildren().clear();
+            selected = true;
+            Label namaLabel = buatNamaLabel(getItemSelected().getNama());
+            ImageView imgView = buatImage(getItemSelected().getFoto());
+            Label hrgLabel = buatHargaLabel(getItemSelected().getHarga());
+            VBox vBox = makingVBox2(getItemSelected(), namaLabel, hrgLabel,imgView);
+            vBoxx.getChildren().add(vBox);
+        }
 //        }
         return selected;
     }
@@ -262,6 +276,7 @@ public class MainFormController implements Initializable {
         }else{
             pembayaran(nilaiMoney);
         }
+
     }
     //Proses Pembelian
     private void pembayaran(double uang){
@@ -309,7 +324,7 @@ public class MainFormController implements Initializable {
 
         });
         tilePaneKembalian.getChildren().add(button);
-
+        refresh();
 //        vbox.getChildren().add(button);
 //        Stage stage = new Stage();
 //        stage.setScene(new Scene(vbox, 1000, 250));
@@ -358,6 +373,44 @@ public class MainFormController implements Initializable {
 //                cancel.setDisable(true);
 //                pembayaran(getItemSelected().getHarga());
             }
+        }
+    }
+
+    @FXML
+    private void loginAct(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/LoginForm.fxml"));
+            VBox root = loader.load();
+            LoginFormController controller = loader.getController();
+            controller.setMainFormController(this);
+
+            Stage mainStage = new Stage();
+            mainStage.setTitle("Login Form");
+            mainStage.initModality(Modality.APPLICATION_MODAL);
+            mainStage.setScene(new Scene(root));
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void refresh(){
+//        getItemEntities().clear();
+//        getItemEntities().addAll(getItemsDao().showAll());
+        tilePane.getChildren().clear();
+        itemEntities = getItemEntities();
+        for(ItemEntity item : itemEntities){
+            ImageView imgView = buatImage(item.getFoto());
+            Label hrgLabel = buatHargaLabel(item.getHarga());
+            Label namaLabel = buatNamaLabel(item.getNama());
+            Label quantityLabel = buatQuantityLabel(item.getQuantity());
+
+            VBox vBox = makingVBox(item, namaLabel, hrgLabel, imgView, quantityLabel);
+            if(item.getQuantity()<=0){
+                imgView.setOpacity(0.5);
+                vBox.setDisable(true);
+            }
+            tilePane.getChildren().add(vBox);
         }
     }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.ItemFormController">
+<VBox fx:id="itemVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.ItemFormController">
    <children>
       <GridPane prefHeight="288.0" prefWidth="663.0">
         <columnConstraints>
@@ -30,13 +30,23 @@
             <TextField fx:id="txtHarga" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="comboCat" prefHeight="31.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Foto" GridPane.rowIndex="4" />
-            <Button fx:id="btnOpenFile" mnemonicParsing="false" onAction="#openFileAct" prefHeight="25.0" prefWidth="95.0" text="Open File" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="285.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
                   <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveAct" text="Save" />
                   <Button mnemonicParsing="false" onAction="#resetAct" text="Reset" />
                   <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#updateAct" text="Update" />
                   <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteAct" text="Delete" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="301.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#closeAct" prefHeight="25.0" prefWidth="50.0" text="Close" />
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -47,6 +57,18 @@
             </HBox>
             <Label text="Stock" GridPane.rowIndex="2" />
             <TextField fx:id="txtQuantity" prefHeight="30.0" prefWidth="529.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <Button fx:id="btnOpenFile" mnemonicParsing="false" onAction="#openFileAct" prefHeight="25.0" prefWidth="95.0" text="Open File" />
+                  <Label fx:id="fotoLabel" text="Choose Picture" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

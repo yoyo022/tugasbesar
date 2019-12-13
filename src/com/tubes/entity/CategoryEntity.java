@@ -37,9 +37,13 @@ public class CategoryEntity {
         return id == that.id &&
                 Objects.equals(name, that.name);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
     }
 }

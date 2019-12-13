@@ -1,5 +1,6 @@
 package com.tubes.controller;
 
+import com.tubes.Main;
 import com.tubes.dao.CategoriesDaoImpl;
 import com.tubes.dao.ItemsDaoImpl;
 import com.tubes.entity.CategoryEntity;
@@ -8,23 +9,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
-import java.util.ResourceBundle;
+import java.nio.file.*;
+import java.util.*;
 
 public class ItemFormController implements Initializable {
     @FXML
@@ -41,6 +43,7 @@ public class ItemFormController implements Initializable {
     private Button btnUpdate;
     @FXML
     private Button btnDelete;
+    private MainFormController mainFormController;
     private List<ItemEntity> itemEntities;
     private ItemsDaoImpl itemsDao;
     private ObservableList<CategoryEntity> categoryEntities;
@@ -50,6 +53,12 @@ public class ItemFormController implements Initializable {
     private TextField txtQuantity;
     @FXML
     private TilePane tilePane;
+    @FXML
+    private VBox itemVbox;
+    private File fileImg;
+    @FXML
+    private Label fotoLabel;
+    private Alert alert;
 
 
     public ItemEntity getItemSelected() {
@@ -58,21 +67,6 @@ public class ItemFormController implements Initializable {
 
     public void setItemSelected(ItemEntity itemSelected) {
         this.itemSelected = itemSelected;
-    }
-
-    public ObservableList<CategoryEntity> getCategoryEntities() {
-        if (categoryEntities==null){
-            categoryEntities = FXCollections.observableArrayList();
-            categoryEntities.addAll(getCategoriesDao().showAll());
-        }
-        return categoryEntities;
-    }
-
-    public CategoriesDaoImpl getCategoriesDao() {
-        if (categoriesDao == null){
-            categoriesDao = new CategoriesDaoImpl();
-        }
-        return categoriesDao;
     }
 
     //Mengambil item dari database
@@ -90,6 +84,22 @@ public class ItemFormController implements Initializable {
         }
         return itemEntities;
     }
+
+    public ObservableList<CategoryEntity> getCategoryEntities() {
+        if (categoryEntities==null){
+            categoryEntities = FXCollections.observableArrayList();
+            categoryEntities.addAll(getCategoriesDao().showAll());
+        }
+        return categoryEntities;
+    }
+
+    public CategoriesDaoImpl getCategoriesDao() {
+        if (categoriesDao == null){
+            categoriesDao = new CategoriesDaoImpl();
+        }
+        return categoriesDao;
+    }
+
     //Membuat image untuk item
     private ImageView buatImage(String photo){
         Image image = new Image("File:" + photo);
@@ -120,21 +130,6 @@ public class ItemFormController implements Initializable {
         return label;
     }
 
-//    private boolean oneItemSelected(){
-//        boolean selected = false;
-//        if(getItemSelected() == null){
-//        }
-//        else{
-//            selected = true;
-//            Label namaLabel = buatNamaLabel(getItemSelected().getNama());
-//            ImageView imgView = buatImage(getItemSelected().getFoto());
-//            Label hrgLabel = buatHargaLabel(getItemSelected().getHarga());
-//            VBox vBox = makingVBox2(getItemSelected(), namaLabel, hrgLabel,imgView);
-//            vBoxx.getChildren().add(vBox);
-//        }
-////        }
-//        return selected;
-//    }
 
     private VBox makingVBox(ItemEntity item, Label namaLabel, Label hargaLabel, ImageView imgView, Label quantity){
         VBox vBox = new VBox();
@@ -151,13 +146,12 @@ public class ItemFormController implements Initializable {
             txtNamaItem.setText(getItemSelected().getNama());
             txtHarga.setText(Double.toString(getItemSelected().getHarga()));
             txtQuantity.setText(Integer.toString(getItemSelected().getQuantity()));
-//            boolean check = oneItemSelected();
-//            if(check){
-//                if(itemSelected.getQuantity() <= 1) {
-//                    vBox.setDisable(true);
-//                    hargaLabel.setText("- HABIS -");
-//                }
-//            }
+            comboCat.setValue(getItemSelected().getCategoryByCategoryId());
+            fotoLabel.setText(getItemSelected().getFoto());
+
+            btnSave.setDisable(true);
+            btnUpdate.setDisable(false);
+            btnDelete.setDisable(false);
         });
         vBox.addEventHandler(MouseEvent.MOUSE_ENTERED, event -> {
             hargaLabel.setStyle("-fx-background-color: salmon;");
@@ -173,7 +167,7 @@ public class ItemFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        itemEntities = getItemEntities();
+
         comboCat.setItems(getCategoryEntities());
         itemEntities = getItemEntities();
         for(ItemEntity item : itemEntities){
@@ -189,27 +183,141 @@ public class ItemFormController implements Initializable {
             }
             tilePane.getChildren().add(vBox);
         }
-
-
     }
 
     @FXML
     private void openFileAct(ActionEvent actionEvent) {
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Open File");
+        chooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PNG", "*.png"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg")
+        );
+        fileImg = chooser.showOpenDialog(itemVbox.getScene().getWindow());
+
+            if(fileImg!=null){
+                fotoLabel.setText(fileImg.getName());
+                try{
+                    Path sblm = Paths.get(fileImg.toURI().toString());
+                    Path dirImg = Paths.get("com/tubes/img/"+fileImg.getName());
+                    CopyOption[] options = new CopyOption[]{
+                            StandardCopyOption.REPLACE_EXISTING,
+                            StandardCopyOption.COPY_ATTRIBUTES
+                    };
+                    Files.copy(sblm, dirImg, options);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                //            Image image = new Image(chooser.toString()); && Files.exists(fileImg.toPath(), LinkOption.NOFOLLOW_LINKS) && Files.isReadable(fileImg.toPath())
+            }
     }
 
     @FXML
     private void saveAct(ActionEvent actionEvent) {
+        alert = new Alert(Alert.AlertType.ERROR);
+        if(!comboCat.getValue().equals(null) && fotoLabel.getText().equals("Choose Picture")  && !txtNamaItem.getText().trim().isEmpty() && !txtQuantity.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty()){
+            ItemEntity item = new ItemEntity();
+            item.setNama(txtNamaItem.getText());
+            item.setQuantity(Integer.parseInt(txtQuantity.getText()));
+            item.setHarga(Double.parseDouble(txtHarga.getText()));
+            item.setCategoryByCategoryId(comboCat.getValue());
+            item.setFoto("com/tubes/img/"+fileImg.getName());
+            boolean notFound = getItemEntities().stream().filter(d -> d.getId() == item.getId()).count() == 0;
+            if(notFound){
+                getItemsDao().addData(item);
+                refresh();
+                clearField();
+            }else{
+                alert.setTitle("Duplicate Item");
+                alert.setContentText("Item sudah ada!");
+                alert.showAndWait();
+            }
+        }else{
+            alert.setTitle("INSERT ERROR");
+            alert.setContentText("Tolong isi semua field yang tersedia!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     private void resetAct(ActionEvent actionEvent) {
+        clearField();
     }
 
     @FXML
     private void updateAct(ActionEvent actionEvent) {
+        if(!comboCat.getValue().equals(null) && fotoLabel.getText().equals("Choose Picture")  && !txtNamaItem.getText().trim().isEmpty() && !txtQuantity.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty()){
+            itemSelected.setNama(txtNamaItem.getText());
+            itemSelected.setQuantity(Integer.parseInt(txtQuantity.getText()));
+            itemSelected.setHarga(Double.parseDouble(txtHarga.getText()));
+            itemSelected.setCategoryByCategoryId(comboCat.getValue());
+            itemSelected.setFoto("com/tubes/img/"+fileImg.getName());
+            getItemsDao().updateData(itemSelected);
+            refresh();
+            clearField();
+        }else{
+            alert.setTitle("UPDATE ERROR");
+            alert.setContentText("Tolong isi semua field yang tersedia!");
+            alert.showAndWait();
+        }
     }
 
     @FXML
     private void deleteAct(ActionEvent actionEvent) {
+        alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("DELETE CONFIRMATION");
+        alert.setContentText("Yakin hapus item "+itemSelected.getNama()+"?");
+        Optional<ButtonType> ok = alert.showAndWait();
+        if(ok.get()==ButtonType.OK){
+            getItemsDao().deleteData(itemSelected);
+        }
+        refresh();
+        clearField();
+    }
+
+    @FXML
+    private void closeAct(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/LoginForm.fxml"));
+            VBox root = loader.load();
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            stage.setTitle("Login Form");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage itemStage = (Stage) itemVbox.getScene().getWindow();
+            itemStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void refresh(){
+        tilePane.getChildren().clear();
+        itemEntities = getItemEntities();
+        for(ItemEntity item : itemEntities){
+            ImageView imgView = buatImage(item.getFoto());
+            Label hrgLabel = buatHargaLabel(item.getHarga());
+            Label namaLabel = buatNamaLabel(item.getNama());
+            Label quantityLabel = buatQuantityLabel(item.getQuantity());
+
+            VBox vBox = makingVBox(item, namaLabel, hrgLabel, imgView, quantityLabel);
+            if(item.getQuantity()<=0){
+                imgView.setOpacity(0.5);
+                vBox.setDisable(true);
+            }
+            tilePane.getChildren().add(vBox);
+        }
+    }
+    private void clearField(){
+        txtHarga.clear();
+        txtNamaItem.clear();
+        txtQuantity.clear();
+        comboCat.setValue(null);
+        fotoLabel.setText("Choose Picture");
+        btnSave.setDisable(false);
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
     }
 }
