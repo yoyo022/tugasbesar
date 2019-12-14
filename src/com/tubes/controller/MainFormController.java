@@ -5,16 +5,14 @@ import com.tubes.dao.CategoriesDaoImpl;
 import com.tubes.dao.ItemsDaoImpl;
 import com.tubes.entity.CategoryEntity;
 import com.tubes.entity.ItemEntity;
-import javafx.collections.FXCollections;
+import com.tubes.entity.TransactionEntity;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -23,15 +21,14 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -275,6 +272,10 @@ public class MainFormController implements Initializable {
             alert.showAndWait();
         }else{
             pembayaran(nilaiMoney);
+            TransactionEntity transaksi = new TransactionEntity();
+            Timestamp tmp = new Timestamp(System.currentTimeMillis());
+            transaksi.setTanggal(tmp);
+            transaksi.setItemByItemId(getItemSelected());
         }
 
     }
@@ -293,18 +294,6 @@ public class MainFormController implements Initializable {
             alert.show();
         }
     }
-//    //Menentukan jumlah lembar uang kembalian
-//    TilePane loopingKembalian(String url1, int duit, TilePane tilePane1){
-//        for(int i=0;i<duit; i++){
-//            Image image = new Image(url1);
-//            ImageView imgView = new ImageView(image);
-//            imgView.setFitHeight(60);
-//            imgView.setFitWidth(140);
-//            tilePane1.getChildren().add(imgView);
-//
-//        }
-//        return tilePane1;
-//    }
 
     private void buatKembalian(double kembalian){
         Button button = new Button("Silahkan ambil kembalian : Rp." + kembalian +", Terima Kasih");

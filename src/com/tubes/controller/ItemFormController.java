@@ -5,6 +5,7 @@ import com.tubes.dao.CategoriesDaoImpl;
 import com.tubes.dao.ItemsDaoImpl;
 import com.tubes.entity.CategoryEntity;
 import com.tubes.entity.ItemEntity;
+import com.tubes.entity.LogItemEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 public class ItemFormController implements Initializable {
@@ -60,7 +62,7 @@ public class ItemFormController implements Initializable {
     private Label fotoLabel;
     private Alert alert;
 
-
+    private LoginFormController loginController;
     public ItemEntity getItemSelected() {
         return itemSelected;
     }
@@ -222,6 +224,15 @@ public class ItemFormController implements Initializable {
             item.setHarga(Double.parseDouble(txtHarga.getText()));
             item.setCategoryByCategoryId(comboCat.getValue());
             item.setFoto("com/tubes/img/"+fileImg.getName());
+
+            LogItemEntity logs =  new LogItemEntity();
+            Timestamp tmp = new Timestamp(System.currentTimeMillis());
+            logs.setTglMasuk(tmp);
+            logs.setUserByUserId(loginController.getUserEntity());
+            logs.setItemByItemId(item);
+
+
+
             boolean notFound = getItemEntities().stream().filter(d -> d.getId() == item.getId()).count() == 0;
             if(notFound){
                 getItemsDao().addData(item);
@@ -253,6 +264,13 @@ public class ItemFormController implements Initializable {
             itemSelected.setCategoryByCategoryId(comboCat.getValue());
             itemSelected.setFoto("com/tubes/img/"+fileImg.getName());
             getItemsDao().updateData(itemSelected);
+
+            LogItemEntity logs =  new LogItemEntity();
+            Timestamp tmp = new Timestamp(System.currentTimeMillis());
+            logs.setTglMasuk(tmp);
+            logs.setUserByUserId(loginController.getUserEntity());
+            logs.setItemByItemId(itemSelected);
+
             refresh();
             clearField();
         }else{

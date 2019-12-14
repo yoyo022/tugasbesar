@@ -9,8 +9,13 @@
         <property name="connection.username">root</property>
         <mapping class="com.tubes.entity.CategoryEntity"/>
         <mapping class="com.tubes.entity.ItemEntity"/>
+        <mapping class="com.tubes.entity.LogItemEntity"/>
         <mapping class="com.tubes.entity.TransactionEntity"/>
         <mapping class="com.tubes.entity.UserEntity"/>
+<!--        <mapping class="com.tubes.entity.CategoryEntity"/>-->
+<!--        <mapping class="com.tubes.entity.ItemEntity"/>-->
+<!--        <mapping class="com.tubes.entity.TransactionEntity"/>-->
+<!--        <mapping class="com.tubes.entity.UserEntity"/>-->
 
 
         <!-- <property name="connection.username"/> -->

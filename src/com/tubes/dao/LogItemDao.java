@@ -1,6 +1,7 @@
 package com.tubes.dao;
 
-import com.tubes.entity.TransactionEntity;
+import com.tubes.entity.CategoryEntity;
+import com.tubes.entity.LogItemEntity;
 import com.tubes.util.DaoService;
 import com.tubes.util.HibernateUtil;
 import org.hibernate.Criteria;
@@ -11,18 +12,18 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionDaoImpl implements DaoService<TransactionEntity> {
+public class LogItemDao implements DaoService<LogItemEntity> {
     @Override
-    public List<TransactionEntity> showAll() {
-        List<TransactionEntity> transactions = new ArrayList<>();
+    public List<LogItemEntity> showAll() {
+        List<LogItemEntity> logItems = new ArrayList<>();
         Session session = HibernateUtil.getSession();
-        Criteria criteria = session.createCriteria(TransactionEntity.class);
-        transactions.addAll(criteria.list());
-        return transactions;
+        Criteria criteria = session.createCriteria(LogItemEntity.class);
+        logItems.addAll(criteria.list());
+        return logItems;
     }
 
     @Override
-    public int addData(TransactionEntity object) {
+    public int addData(LogItemEntity object) {
         int result = 0;
         Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
@@ -37,12 +38,12 @@ public class TransactionDaoImpl implements DaoService<TransactionEntity> {
     }
 
     @Override
-    public int updateData(TransactionEntity object) {
+    public int updateData(LogItemEntity object) {
         return 0;
     }
 
     @Override
-    public int deleteData(TransactionEntity object) {
+    public int deleteData(LogItemEntity object) {
         return 0;
     }
 }

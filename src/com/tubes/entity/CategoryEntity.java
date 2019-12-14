@@ -1,6 +1,7 @@
 package com.tubes.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -8,6 +9,7 @@ import java.util.Objects;
 public class CategoryEntity {
     private int id;
     private String name;
+    private Collection<ItemEntity> itemsById;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -37,13 +39,23 @@ public class CategoryEntity {
         return id == that.id &&
                 Objects.equals(name, that.name);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
     }
 
+    @OneToMany(mappedBy = "categoryByCategoryId")
+    public Collection<ItemEntity> getItemsById() {
+        return itemsById;
+    }
+
+    public void setItemsById(Collection<ItemEntity> itemsById) {
+        this.itemsById = itemsById;
+    }
+
     @Override
     public String toString() {
-        return this.getName();
+        return name;
     }
 }

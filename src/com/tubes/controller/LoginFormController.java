@@ -3,7 +3,6 @@ package com.tubes.controller;
 import com.tubes.Main;
 import com.tubes.dao.UserDaoImpl;
 import com.tubes.entity.UserEntity;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,14 +15,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -34,6 +31,8 @@ public class LoginFormController implements Initializable {
     private PasswordField txtPassword;
     private ObservableList<UserEntity> userEntities;
     private UserDaoImpl userDao;
+    private UserEntity userEntity;
+
     private Alert alert;
     @FXML
     private Button login;
@@ -41,6 +40,14 @@ public class LoginFormController implements Initializable {
     private Parent scene;
     @FXML
     private VBox loginVbox;
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
 
     public List<UserEntity> getUserEntities() {
         if (userEntities == null){
@@ -87,6 +94,7 @@ public class LoginFormController implements Initializable {
                             stage.show();
                             txtUser.clear();
                             txtPassword.clear();
+                            setUserEntity(u);
                             Stage loginStage = (Stage) loginVbox.getScene().getWindow();
                             loginStage.close();
 
