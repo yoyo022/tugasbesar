@@ -231,8 +231,6 @@ public class ItemFormController implements Initializable {
             logs.setUserByUserId(loginController.getUserEntity());
             logs.setItemByItemId(item);
 
-
-
             boolean notFound = getItemEntities().stream().filter(d -> d.getId() == item.getId()).count() == 0;
             if(notFound){
                 getItemsDao().addData(item);

@@ -6,6 +6,7 @@ import com.tubes.entity.UserEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -66,6 +69,7 @@ public class LoginFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
     }
 
     @FXML
@@ -74,6 +78,7 @@ public class LoginFormController implements Initializable {
         u.setUsername(txtUser.getText());
         u.setPassword(txtPassword.getText());
         alert = new Alert(Alert.AlertType.ERROR);
+
         if (u.getUsername().equals("") || u.getPassword().equals("")){
             alert.setTitle("ERROR");
             alert.setContentText("Please fill username/password");
@@ -131,4 +136,123 @@ public class LoginFormController implements Initializable {
         this.mainFormController = mainFormController;
     }
 
+    @FXML
+    private void userFieldAct(ActionEvent actionEvent) {
+        UserEntity u = new UserEntity();
+        u.setUsername(txtUser.getText());
+        u.setPassword(txtPassword.getText());
+        alert = new Alert(Alert.AlertType.ERROR);
+        txtUser.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode().equals("ENTER"));{
+                    if (u.getUsername().equals("") || u.getPassword().equals("")){
+                        alert.setTitle("ERROR");
+                        alert.setContentText("Please fill username/password");
+                        alert.showAndWait();
+                    }else{
+                        for(UserEntity user : getUserEntities()){
+                            if(user.getUsername().equals(u.getUsername())){
+                                if (user.getPassword().equals(u.getPassword())){
+                                    try {
+                                        FXMLLoader loader = new FXMLLoader();
+                                        loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
+                                        VBox root = loader.load();
+                                        Stage stage = new Stage();
+                                        stage.setResizable(false);
+                                        stage.setTitle("Item Form");
+                                        stage.setScene(new Scene(root));
+                                        stage.initModality(Modality.APPLICATION_MODAL);
+                                        stage.show();
+                                        txtUser.clear();
+                                        txtPassword.clear();
+                                        setUserEntity(u);
+                                        Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+                                        loginStage.close();
+
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                    //Pindah ke form Item
+                                }
+                                else {
+                                    alert.setTitle("ERROR");
+                                    alert.setContentText("Username/Password yang dimasukkan salah");
+                                    alert.showAndWait();
+                                    break;
+                                }
+                            }
+                            else  {
+                                alert.setTitle("ERROR");
+                                alert.setContentText("Username/Password yang dimasukkan salah");
+                                alert.showAndWait();
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    @FXML
+    private void passFieldAct(ActionEvent actionEvent) {
+        UserEntity u = new UserEntity();
+        u.setUsername(txtUser.getText());
+        u.setPassword(txtPassword.getText());
+        alert = new Alert(Alert.AlertType.ERROR);
+        txtPassword.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode().equals(KeyCode.ENTER));{
+                    if (u.getUsername().equals("") || u.getPassword().equals("")){
+                        alert.setTitle("ERROR");
+                        alert.setContentText("Please fill username/password");
+                        alert.showAndWait();
+                    }else{
+                        for(UserEntity user : getUserEntities()){
+                            if(user.getUsername().equals(u.getUsername())){
+                                if (user.getPassword().equals(u.getPassword())){
+                                    try {
+                                        FXMLLoader loader = new FXMLLoader();
+                                        loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
+                                        VBox root = loader.load();
+                                        Stage stage = new Stage();
+                                        stage.setResizable(false);
+                                        stage.setTitle("Item Form");
+                                        stage.setScene(new Scene(root));
+                                        stage.initModality(Modality.APPLICATION_MODAL);
+                                        stage.show();
+                                        txtUser.clear();
+                                        txtPassword.clear();
+                                        setUserEntity(u);
+                                        Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+                                        loginStage.close();
+
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                    //Pindah ke form Item
+                                }
+                                else {
+                                    alert.setTitle("ERROR");
+                                    alert.setContentText("Username/Password yang dimasukkan salah");
+                                    alert.showAndWait();
+                                    break;
+                                }
+                            }
+                            else  {
+                                alert.setTitle("ERROR");
+                                alert.setContentText("Username/Password yang dimasukkan salah");
+                                alert.showAndWait();
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
 }

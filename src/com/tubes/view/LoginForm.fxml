@@ -23,7 +23,7 @@
          <children>
             <Label text="Username" />
             <Label text="Password" GridPane.rowIndex="1" />
-            <TextField fx:id="txtUser" GridPane.columnIndex="1" />
+            <TextField fx:id="txtUser" onAction="#userFieldAct" GridPane.columnIndex="1" />
             <HBox alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="login" mnemonicParsing="false" onAction="#btnLogin" text="Login" />
@@ -36,7 +36,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </HBox>
-            <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="txtPassword" onAction="#passFieldAct" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="280.0">
