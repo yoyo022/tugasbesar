@@ -2,30 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Int Lab">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jasperreports_5_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jasperreports-5.6.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/pringlessourcream.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/pringlespaprika.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/pringlespizza.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tubes_VENDING.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/Tubes_VENDING.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tubes_VENDING.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/Tubes_VENDING.mwb.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/ItemFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/ItemFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/KlikFormController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/view/ItemForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/view/ItemForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/tubes/controller/ItemFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/controller/ItemFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/controller/KlikFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/cocacola.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/cocacola.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/pocarisweat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/silverqueen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/silverqueen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/silverqueen2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/silverqueen2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/sprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/sprite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehbotol.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehkotak.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehpucukharum.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/tubes/view/ItemForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/view/ItemForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/tubes/view/MainForm2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/view/MainForm2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tugasbesar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tugasbesar.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +302,8 @@
       <workItem from="1576503936712" duration="2288000" />
       <workItem from="1576558909938" duration="953000" />
       <workItem from="1576832863186" duration="3468000" />
-      <workItem from="1577156611452" duration="3444000" />
+      <workItem from="1577156611452" duration="5295000" />
+      <workItem from="1577173256181" duration="2600000" />
     </task>
     <task id="LOCAL-00001" summary="Int Lab">
       <created>1574065012108</created>
@@ -369,30 +355,46 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1576837026114" />
-    <state width="1877" height="192" key="GridCell.Tab.0.bottom" timestamp="1577163557264">
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom" timestamp="1577175724773">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="192" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
-    <state width="1877" height="192" key="GridCell.Tab.0.center" timestamp="1577163557264">
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1577175724773" />
+    <state width="1877" height="192" key="GridCell.Tab.0.center" timestamp="1577175724773">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="192" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
-    <state width="1877" height="192" key="GridCell.Tab.0.left" timestamp="1577163557264">
+    <state width="1877" height="192" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1577175724773" />
+    <state width="1877" height="192" key="GridCell.Tab.0.left" timestamp="1577175724773">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="192" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
-    <state width="1877" height="192" key="GridCell.Tab.0.right" timestamp="1577163557264">
+    <state width="1877" height="192" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1577175724773" />
+    <state width="1877" height="192" key="GridCell.Tab.0.right" timestamp="1577175724773">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="192" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
+    <state width="1877" height="192" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1577175724773" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1577175449914">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1577175449914" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1577175449914">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1577175449914" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1577175449914">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1577175449914" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1577175449914">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1577175449914" />
     <state x="461" y="167" key="SettingsEditor" timestamp="1576837029374">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1576837029374" />
-    <state x="656" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1577156611329">
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1577173256713">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1577156611329" />
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1577173256713" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

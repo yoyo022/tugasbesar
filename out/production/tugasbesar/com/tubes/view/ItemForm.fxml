@@ -80,7 +80,7 @@
       </GridPane>
       <ScrollPane prefHeight="317.0" prefWidth="799.0">
          <content>
-            <TilePane fx:id="tilePane" orientation="VERTICAL" prefHeight="1052.0" prefWidth="783.0" tileAlignment="TOP_LEFT" vgap="100.0" />
+            <TilePane fx:id="tilePane" hgap="10.0" orientation="VERTICAL" prefHeight="1052.0" prefWidth="783.0" tileAlignment="TOP_LEFT" vgap="100.0" />
          </content>
       </ScrollPane>
    </children>

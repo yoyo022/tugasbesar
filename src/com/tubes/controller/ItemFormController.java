@@ -209,7 +209,7 @@ public class ItemFormController implements Initializable {
                 fotoLabel.setText(fileImg.getName());
                 try{
                     Path sblm = Paths.get(fileImg.toURI().toString());
-                    Path dirImg = Paths.get("com/tubes/img/"+fileImg.getName());
+                    Path dirImg = Paths.get("src/com/tubes/img/"+fileImg.getName());
                     CopyOption[] options = new CopyOption[]{
                             StandardCopyOption.REPLACE_EXISTING,
                             StandardCopyOption.COPY_ATTRIBUTES
@@ -225,18 +225,18 @@ public class ItemFormController implements Initializable {
     @FXML
     private void saveAct(ActionEvent actionEvent) {
         alert = new Alert(Alert.AlertType.ERROR);
-        if(!comboCat.getValue().equals(null) && fotoLabel.getText().equals("Choose Picture")  && !txtNamaItem.getText().trim().isEmpty() && !txtQuantity.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty()){
+        if(!comboCat.getValue().equals(null) && !fotoLabel.getText().equals("Choose Picture")  && !txtNamaItem.getText().trim().isEmpty() && !txtQuantity.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty()){
             ItemEntity item = new ItemEntity();
             item.setNama(txtNamaItem.getText());
             item.setQuantity(Integer.parseInt(txtQuantity.getText()));
             item.setHarga(Double.parseDouble(txtHarga.getText()));
             item.setCategoryByCategoryId(comboCat.getValue());
-            item.setFoto("com/tubes/img/"+fileImg.getName());
+            item.setFoto("src/com/tubes/img/"+fileImg.getName());
 
             LogItemEntity logs =  new LogItemEntity();
             Timestamp tmp = new Timestamp(System.currentTimeMillis());
             logs.setTglMasuk(tmp);
-            logs.setUserByUserId(loginController.getUserEntity());
+//            logs.setUserByUserId(loginController.getUserEntity());
             logs.setItemByItemId(item);
 
             boolean notFound = getItemEntities().stream().filter(d -> d.getId() == item.getId()).count() == 0;
@@ -263,12 +263,12 @@ public class ItemFormController implements Initializable {
 
     @FXML
     private void updateAct(ActionEvent actionEvent) {
-        if(!comboCat.getValue().equals(null) && fotoLabel.getText().equals("Choose Picture")  && !txtNamaItem.getText().trim().isEmpty() && !txtQuantity.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty()){
+        if(!comboCat.getValue().equals(null) && !fotoLabel.getText().equals("Choose Picture")  && !txtNamaItem.getText().trim().isEmpty() && !txtQuantity.getText().trim().isEmpty() && !txtHarga.getText().trim().isEmpty()){
             itemSelected.setNama(txtNamaItem.getText());
             itemSelected.setQuantity(Integer.parseInt(txtQuantity.getText()));
             itemSelected.setHarga(Double.parseDouble(txtHarga.getText()));
             itemSelected.setCategoryByCategoryId(comboCat.getValue());
-            itemSelected.setFoto("com/tubes/img/"+fileImg.getName());
+            itemSelected.setFoto("src/com/tubes/img/"+fileImg.getName());
             getItemsDao().updateData(itemSelected);
 
             LogItemEntity logs =  new LogItemEntity();
