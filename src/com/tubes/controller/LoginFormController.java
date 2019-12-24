@@ -74,55 +74,36 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void btnLogin(ActionEvent actionEvent) {
-        UserEntity u = new UserEntity();
-        u.setUsername(txtUser.getText());
-        u.setPassword(txtPassword.getText());
         alert = new Alert(Alert.AlertType.ERROR);
-
-        if (u.getUsername().equals("") || u.getPassword().equals("")){
+        UserDaoImpl userDao = new UserDaoImpl();
+        UserEntity user = userDao.masuk(txtUser.getText(), txtPassword.getText());
+        if (user == null){
             alert.setTitle("ERROR");
             alert.setContentText("Please fill username/password");
             alert.showAndWait();
         }else{
-            for(UserEntity user : getUserEntities()){
-                if(user.getUsername().equals(u.getUsername())){
-                    if (user.getPassword().equals(u.getPassword())){
-                        try {
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
-                            VBox root = loader.load();
-                            Stage stage = new Stage();
-                            stage.setResizable(false);
-                            stage.setTitle("Item Form");
-                            stage.setScene(new Scene(root));
-                            stage.initModality(Modality.APPLICATION_MODAL);
-                            stage.show();
-                            txtUser.clear();
-                            txtPassword.clear();
-                            setUserEntity(u);
-                            Stage loginStage = (Stage) loginVbox.getScene().getWindow();
-                            loginStage.close();
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
+                VBox root = loader.load();
+                ItemFormController controller = loader.getController();
+                controller.setLoginController(this);
+                controller.setUser(user);
+                Stage stage = new Stage();
+                stage.setResizable(false);
+                stage.setTitle("Item Form");
+                stage.setScene(new Scene(root));
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.show();
+                txtUser.clear();
+                txtPassword.clear();
+                Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+                loginStage.close();
 
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                        //Pindah ke form Item
-                    }
-                    else {
-                        alert.setTitle("ERROR");
-                        alert.setContentText("Username/Password yang dimasukkan salah");
-                        alert.showAndWait();
-                        break;
-                    }
-                }
-                else  {
-                    alert.setTitle("ERROR");
-                    alert.setContentText("Username/Password yang dimasukkan salah");
-                    alert.showAndWait();
-                    break;
-                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            //Pindah ke form Item
         }
     }
 
@@ -138,59 +119,42 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void userFieldAct(ActionEvent actionEvent) {
-        UserEntity u = new UserEntity();
-        u.setUsername(txtUser.getText());
-        u.setPassword(txtPassword.getText());
         alert = new Alert(Alert.AlertType.ERROR);
+        UserDaoImpl userDao = new UserDaoImpl();
+        UserEntity user = userDao.masuk(txtUser.getText(), txtPassword.getText());
         txtUser.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode().equals("ENTER"));{
-                    if (u.getUsername().equals("") || u.getPassword().equals("")){
+                if(event.getCode().equals(KeyCode.ENTER)){
+                    if (user == null){
                         alert.setTitle("ERROR");
                         alert.setContentText("Please fill username/password");
                         alert.showAndWait();
                     }else{
-                        for(UserEntity user : getUserEntities()){
-                            if(user.getUsername().equals(u.getUsername())){
-                                if (user.getPassword().equals(u.getPassword())){
-                                    try {
-                                        FXMLLoader loader = new FXMLLoader();
-                                        loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
-                                        VBox root = loader.load();
-                                        Stage stage = new Stage();
-                                        stage.setResizable(false);
-                                        stage.setTitle("Item Form");
-                                        stage.setScene(new Scene(root));
-                                        stage.initModality(Modality.APPLICATION_MODAL);
-                                        stage.show();
-                                        txtUser.clear();
-                                        txtPassword.clear();
-                                        setUserEntity(u);
-                                        Stage loginStage = (Stage) loginVbox.getScene().getWindow();
-                                        loginStage.close();
+                        try {
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
+                            VBox root = loader.load();
+                            ItemFormController controller = loader.getController();
+                            controller.setUser(user);
+                            Stage stage = new Stage();
+                            stage.setResizable(false);
+                            stage.setTitle("Item Form");
+                            stage.setScene(new Scene(root));
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.show();
+                            txtUser.clear();
+                            txtPassword.clear();
+                            Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+                            loginStage.close();
 
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                    break;
-                                    //Pindah ke form Item
-                                }
-                                else {
-                                    alert.setTitle("ERROR");
-                                    alert.setContentText("Username/Password yang dimasukkan salah");
-                                    alert.showAndWait();
-                                    break;
-                                }
-                            }
-                            else  {
-                                alert.setTitle("ERROR");
-                                alert.setContentText("Username/Password yang dimasukkan salah");
-                                alert.showAndWait();
-                                break;
-                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
+                        //Pindah ke form Item
                     }
+                }else{
+
                 }
             }
         });
@@ -198,59 +162,45 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void passFieldAct(ActionEvent actionEvent) {
-        UserEntity u = new UserEntity();
-        u.setUsername(txtUser.getText());
-        u.setPassword(txtPassword.getText());
         alert = new Alert(Alert.AlertType.ERROR);
+        UserDaoImpl userDao = new UserDaoImpl();
+        UserEntity user = userDao.masuk(txtUser.getText(), txtPassword.getText());
         txtPassword.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if(event.getCode().equals(KeyCode.ENTER));{
-                    if (u.getUsername().equals("") || u.getPassword().equals("")){
+                if(event.getCode().equals(KeyCode.ENTER)){
+                    if (user == null){
                         alert.setTitle("ERROR");
                         alert.setContentText("Please fill username/password");
                         alert.showAndWait();
                     }else{
-                        for(UserEntity user : getUserEntities()){
-                            if(user.getUsername().equals(u.getUsername())){
-                                if (user.getPassword().equals(u.getPassword())){
-                                    try {
-                                        FXMLLoader loader = new FXMLLoader();
-                                        loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
-                                        VBox root = loader.load();
-                                        Stage stage = new Stage();
-                                        stage.setResizable(false);
-                                        stage.setTitle("Item Form");
-                                        stage.setScene(new Scene(root));
-                                        stage.initModality(Modality.APPLICATION_MODAL);
-                                        stage.show();
-                                        txtUser.clear();
-                                        txtPassword.clear();
-                                        setUserEntity(u);
-                                        Stage loginStage = (Stage) loginVbox.getScene().getWindow();
-                                        loginStage.close();
-
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                    break;
-                                    //Pindah ke form Item
-                                }
-                                else {
-                                    alert.setTitle("ERROR");
-                                    alert.setContentText("Username/Password yang dimasukkan salah");
-                                    alert.showAndWait();
-                                    break;
-                                }
-                            }
-                            else  {
-                                alert.setTitle("ERROR");
-                                alert.setContentText("Username/Password yang dimasukkan salah");
-                                alert.showAndWait();
-                                break;
-                            }
+                        try {
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
+                            VBox root = loader.load();
+                            ItemFormController item =   loader.getController();
+//                            item.setLoginController(this);
+//                            login.setUserEntity(this);
+                            ItemFormController controller = loader.getController();
+                            controller.setUser(user);
+                            Stage stage = new Stage();
+                            stage.setResizable(false);
+                            stage.setTitle("Item Form");
+                            stage.setScene(new Scene(root));
+                            stage.initModality(Modality.APPLICATION_MODAL);
+                            stage.show();
+                            txtUser.clear();
+                            txtPassword.clear();
+                            Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+                            loginStage.close();
+                            setUserEntity(user);
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
+                        //Pindah ke form Item
                     }
+                }else{
+
                 }
             }
         });

@@ -2,31 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Int Lab">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jasperreports_5_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jasperreports-5.6.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/pringlessourcream.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/MHW-Research_Expedition_Emblem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/setting.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tubes_VENDING.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/Tubes_VENDING.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tubes_VENDING.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/Tubes_VENDING.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/META-INF/tugasbesar.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/ItemFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/ItemFormController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/KlikFormController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/view/ItemForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/view/ItemForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/LoginFormController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/LoginFormController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/LoginFormController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/LoginFormController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/LoginFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/LoginFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/dao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/dao/UserDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/tubes/controller/ItemFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/controller/ItemFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/controller/KlikFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/cocacola.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/cocacola.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/pocarisweat.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/silverqueen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/silverqueen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/silverqueen2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/silverqueen2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/sprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/sprite.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehbotol.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehkotak.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehpucukharum.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/view/ItemForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/view/ItemForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tubes/view/MainForm2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/view/MainForm2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tugasbesar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tugasbesar.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/controller/LoginFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/dao/UserDaoImpl.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +147,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jasperreports-5.6.0.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -175,13 +165,19 @@
       <recent name="D:\Program Files\Project\VendingMachine\tugasbesar\src\com\tubes\view" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Application.Main (1)">
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -193,6 +189,12 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tubes.Main" />
@@ -267,18 +269,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -318,6 +308,7 @@
       <workItem from="1576558909938" duration="953000" />
       <workItem from="1576832863186" duration="3468000" />
       <workItem from="1577156611452" duration="3444000" />
+      <workItem from="1577174738565" duration="932000" />
     </task>
     <task id="LOCAL-00001" summary="Int Lab">
       <created>1574065012108</created>
