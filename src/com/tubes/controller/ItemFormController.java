@@ -6,6 +6,7 @@ import com.tubes.dao.ItemsDaoImpl;
 import com.tubes.entity.CategoryEntity;
 import com.tubes.entity.ItemEntity;
 import com.tubes.entity.LogItemEntity;
+import com.tubes.util.Konektor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,11 +23,16 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.*;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -61,8 +67,10 @@ public class ItemFormController implements Initializable {
     @FXML
     private Label fotoLabel;
     private Alert alert;
-
+    @FXML
+    private Button btnShowReport;
     private LoginFormController loginController;
+
     public ItemEntity getItemSelected() {
         return itemSelected;
     }
@@ -335,5 +343,17 @@ public class ItemFormController implements Initializable {
         btnSave.setDisable(false);
         btnUpdate.setDisable(true);
         btnDelete.setDisable(true);
+    }
+
+    @FXML
+    private void actShowReport(ActionEvent actionEvent) {
+        try {
+            JasperPrint jp = JasperFillManager.fillReport("js/report1.jasper", new HashMap<>(), Konektor.connection());
+            JasperViewer viewer = new JasperViewer(jp,false);
+            viewer.setTitle("Department Report");
+            viewer.setVisible(true);
+        } catch (JRException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

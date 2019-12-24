@@ -36,7 +36,8 @@
                   <Button mnemonicParsing="false" onAction="#resetAct" text="Reset" />
                   <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#updateAct" text="Update" />
                   <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteAct" text="Delete" />
-                  <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="301.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                  <Button fx:id="btnShowReport" mnemonicParsing="false" onAction="#actShowReport" text="ShowReport" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="207.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Button mnemonicParsing="false" onAction="#closeAct" prefHeight="25.0" prefWidth="50.0" text="Close" />
                      </children>
