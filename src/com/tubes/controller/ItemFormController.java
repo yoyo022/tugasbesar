@@ -24,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -74,6 +75,10 @@ public class ItemFormController implements Initializable {
     private LoginFormController loginController;
     private UserEntity user;
     private LogItemDao logDao;
+    @FXML
+    private MenuItem reportItem;
+    @FXML
+    private MenuItem reportMonth;
 
     public LogItemDao getLogDao() {
         if(logDao==null){
@@ -330,18 +335,38 @@ public class ItemFormController implements Initializable {
         refresh();
         clearField();
     }
-
+    public void setMainFormController(MainFormController mainFormController) {
+        this.mainFormController = mainFormController;
+    }
     @FXML
     private void closeAct(ActionEvent actionEvent) {
+//        try {
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(Main.class.getResource("view/MainForm2.fxml"));
+//            VBox root = loader.load();
+//            MainFormController controller = loader.getController();
+//            controller.setItemController(this);
+//
+//            Stage mainStage = new Stage();
+//            mainStage.setTitle("Vending Machine");
+//            mainStage.initModality(Modality.APPLICATION_MODAL);
+//            mainStage.setScene(new Scene(root));
+//            mainStage.show();
+//
+//            Stage itemStage = (Stage) itemVbox.getScene().getWindow();
+//            itemStage.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("view/LoginForm.fxml"));
             VBox root = loader.load();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setTitle("Login Form");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Stage mainStage = new Stage();
+            mainStage.setTitle("Login Form");
+            mainStage.initModality(Modality.APPLICATION_MODAL);
+            mainStage.setScene(new Scene(root));
+            mainStage.show();
 
             Stage itemStage = (Stage) itemVbox.getScene().getWindow();
             itemStage.close();
@@ -380,11 +405,23 @@ public class ItemFormController implements Initializable {
     }
 
     @FXML
-    private void actShowReport(ActionEvent actionEvent) {
+    private void actShowReportItem(ActionEvent actionEvent) {
         try {
             JasperPrint jp = JasperFillManager.fillReport("js/report1.jasper", new HashMap<>(), Konektor.connection());
             JasperViewer viewer = new JasperViewer(jp,false);
-            viewer.setTitle("Department Report");
+            viewer.setTitle("Department Report by Item");
+            viewer.setVisible(true);
+        } catch (JRException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void actShowReportMonth(ActionEvent actionEvent) {
+        try {
+            JasperPrint jp = JasperFillManager.fillReport("js/report2.jasper", new HashMap<>(), Konektor.connection());
+            JasperViewer viewer = new JasperViewer(jp,false);
+            viewer.setTitle("Department Report by Month");
             viewer.setVisible(true);
         } catch (JRException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
