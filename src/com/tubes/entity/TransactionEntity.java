@@ -32,15 +32,15 @@ public class TransactionEntity {
         this.tanggal = tanggal;
     }
 
-    @Basic
-    @Column(name = "transactioncol", nullable = false, length = 45)
-    public String getTransactioncol() {
-        return transactioncol;
-    }
-
-    public void setTransactioncol(String transactioncol) {
-        this.transactioncol = transactioncol;
-    }
+//    @Basic
+//    @Column(name = "transactioncol", nullable = false, length = 45)
+//    public String getTransactioncol() {
+//        return transactioncol;
+//    }
+//
+//    public void setTransactioncol(String transactioncol) {
+//        this.transactioncol = transactioncol;
+//    }
 
     @Override
     public boolean equals(Object o) {

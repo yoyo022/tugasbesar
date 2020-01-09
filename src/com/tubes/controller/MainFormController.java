@@ -3,6 +3,7 @@ package com.tubes.controller;
 import com.tubes.Main;
 import com.tubes.dao.CategoriesDaoImpl;
 import com.tubes.dao.ItemsDaoImpl;
+import com.tubes.dao.TransactionDaoImpl;
 import com.tubes.entity.CategoryEntity;
 import com.tubes.entity.ItemEntity;
 import com.tubes.entity.TransactionEntity;
@@ -284,6 +285,15 @@ public class MainFormController implements Initializable {
         ItemsDaoImpl itemsDao = new ItemsDaoImpl();
         getItemSelected().setQuantity((getItemSelected().getQuantity())-1);
         itemsDao.updateData(getItemSelected());
+
+        TransactionDaoImpl transactionDao = new TransactionDaoImpl();
+        TransactionEntity transactionEntity = new TransactionEntity();
+
+        Timestamp tmp = new Timestamp(System.currentTimeMillis());
+        transactionEntity.setTanggal(tmp);
+        transactionEntity.setItemByItemId(getItemSelected());
+        transactionDao.addData(transactionEntity);
+
         if(uang > getItemSelected().getHarga()){
             double kembalian =  uang - getItemSelected().getHarga();
             buatKembalian(kembalian);
@@ -387,7 +397,9 @@ public class MainFormController implements Initializable {
 //        getItemEntities().clear();
 //        getItemEntities().addAll(getItemsDao().showAll());
         tilePane.getChildren().clear();
+        getItemEntities().addAll(getItemsDao().showAll());
         itemEntities = getItemEntities();
+
         for(ItemEntity item : itemEntities){
             ImageView imgView = buatImage(item.getFoto());
             Label hrgLabel = buatHargaLabel(item.getHarga());

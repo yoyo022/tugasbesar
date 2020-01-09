@@ -36,6 +36,7 @@ public class UserDaoImpl implements DaoService<UserEntity> {
 
         return user;
     }
+
     @Override
     public List<UserEntity> showAll() {
         List<UserEntity> users = new ArrayList<>();

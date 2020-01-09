@@ -9,6 +9,16 @@
 
 <VBox fx:id="itemVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tubes.controller.ItemFormController">
    <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Report">
+            <items>
+              <MenuItem fx:id="report1" mnemonicParsing="false" onAction="#showReportItem" text="Show Report by Item" />
+                  <MenuItem fx:id="report2" mnemonicParsing="false" onAction="#showReportDate" text="Show Report by Date" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
       <GridPane prefHeight="288.0" prefWidth="663.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="508.0" minWidth="10.0" prefWidth="250.0" />
@@ -36,7 +46,6 @@
                   <Button mnemonicParsing="false" onAction="#resetAct" text="Reset" />
                   <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#updateAct" text="Update" />
                   <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteAct" text="Delete" />
-                  <Button fx:id="btnShowReport" mnemonicParsing="false" onAction="#actShowReport" text="ShowReport" />
                   <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="207.0" spacing="5.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Button mnemonicParsing="false" onAction="#closeAct" prefHeight="25.0" prefWidth="50.0" text="Close" />
@@ -80,7 +89,7 @@
       </GridPane>
       <ScrollPane prefHeight="317.0" prefWidth="799.0">
          <content>
-            <TilePane fx:id="tilePane" hgap="10.0" orientation="VERTICAL" prefHeight="1052.0" prefWidth="783.0" tileAlignment="TOP_LEFT" vgap="100.0" />
+            <TilePane fx:id="tilePane" orientation="VERTICAL" prefHeight="1052.0" prefWidth="783.0" tileAlignment="TOP_LEFT" vgap="100.0" />
          </content>
       </ScrollPane>
    </children>

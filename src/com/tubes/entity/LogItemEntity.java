@@ -47,7 +47,7 @@ public class LogItemEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "item_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "item_id", referencedColumnName = "id")
     public ItemEntity getItemByItemId() {
         return itemByItemId;
     }
@@ -57,7 +57,7 @@ public class LogItemEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     public UserEntity getUserByUserId() {
         return userByUserId;
     }

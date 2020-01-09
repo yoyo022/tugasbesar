@@ -24,7 +24,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginFormController implements Initializable {
@@ -40,20 +39,13 @@ public class LoginFormController implements Initializable {
     @FXML
     private Button login;
     private MainFormController  mainFormController;
+    private ItemFormController itemCon;
     private Parent scene;
     @FXML
     private VBox loginVbox;
 
-    public UserEntity getUserEntity() {
-        return userEntity;
-    }
-
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
-    }
-
-    public List<UserEntity> getUserEntities() {
-        if (userEntities == null){
+    public ObservableList<UserEntity> getUserEntities() {
+        if(userEntities==null){
             userEntities = FXCollections.observableArrayList();
             userEntities.addAll(getUserDao().showAll());
         }
@@ -61,15 +53,24 @@ public class LoginFormController implements Initializable {
     }
 
     public UserDaoImpl getUserDao() {
-        if (userDao==null){
+        if(userDao==null){
             userDao = new UserDaoImpl();
         }
         return userDao;
     }
 
+    public UserEntity getUserEntity() {
+
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     @FXML
@@ -82,28 +83,28 @@ public class LoginFormController implements Initializable {
             alert.setContentText("Please fill username/password");
             alert.showAndWait();
         }else{
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
-                VBox root = loader.load();
-                ItemFormController controller = loader.getController();
-                controller.setLoginController(this);
-                controller.setUser(user);
-                Stage stage = new Stage();
-                stage.setResizable(false);
-                stage.setTitle("Item Form");
-                stage.setScene(new Scene(root));
-                stage.initModality(Modality.APPLICATION_MODAL);
-                stage.show();
-                txtUser.clear();
-                txtPassword.clear();
-                Stage loginStage = (Stage) loginVbox.getScene().getWindow();
-                loginStage.close();
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
+                    VBox root = loader.load();
+                    ItemFormController controller = loader.getController();
+                    controller.setLoginController(this);
+                    controller.setUser(user);
+                    Stage stage = new Stage();
+                    stage.setResizable(false);
+                    stage.setTitle("Item Form");
+                    stage.setScene(new Scene(root));
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.show();
+                    txtUser.clear();
+                    txtPassword.clear();
+                    Stage loginStage = (Stage) loginVbox.getScene().getWindow();
+                    loginStage.close();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            //Pindah ke form Item
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                        //Pindah ke form Item
         }
     }
 
@@ -135,8 +136,6 @@ public class LoginFormController implements Initializable {
                             FXMLLoader loader = new FXMLLoader();
                             loader.setLocation(Main.class.getResource("view/ItemForm.fxml"));
                             VBox root = loader.load();
-                            ItemFormController controller = loader.getController();
-                            controller.setUser(user);
                             Stage stage = new Stage();
                             stage.setResizable(false);
                             stage.setTitle("Item Form");
@@ -147,7 +146,8 @@ public class LoginFormController implements Initializable {
                             txtPassword.clear();
                             Stage loginStage = (Stage) loginVbox.getScene().getWindow();
                             loginStage.close();
-
+                            setUserEntity(user);
+                            itemCon.setUser(user);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -181,8 +181,6 @@ public class LoginFormController implements Initializable {
                             ItemFormController item =   loader.getController();
 //                            item.setLoginController(this);
 //                            login.setUserEntity(this);
-                            ItemFormController controller = loader.getController();
-                            controller.setUser(user);
                             Stage stage = new Stage();
                             stage.setResizable(false);
                             stage.setTitle("Item Form");
@@ -193,6 +191,7 @@ public class LoginFormController implements Initializable {
                             txtPassword.clear();
                             Stage loginStage = (Stage) loginVbox.getScene().getWindow();
                             loginStage.close();
+                            itemCon.setUser(user);
                             setUserEntity(user);
                         } catch (IOException e) {
                             e.printStackTrace();

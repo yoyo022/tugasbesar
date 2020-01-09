@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a58059b2-309c-4a7d-b853-3678e990a31b">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0833c4ef-62a4-494a-87a6-ebe22ef29d99">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -16,7 +16,6 @@
      log_item.`idlog` AS log_item_idlog,
      log_item.`tgl_Masuk` AS log_item_tgl_Masuk,
      log_item.`item_id` AS log_item_item_id,
-     log_item.`user_id` AS log_item_user_id,
      transaction.`id` AS transaction_id,
      transaction.`tanggal` AS transaction_tanggal,
      transaction.`transactioncol` AS transaction_transactioncol,
@@ -28,8 +27,8 @@
 FROM
      `category` category INNER JOIN `item` item ON category.`id` = item.`category_id`
      INNER JOIN `log_item` log_item ON item.`id` = log_item.`item_id`
-     INNER JOIN `transaction` transaction ON item.`id` = transaction.`item_id`
-     INNER JOIN `user` user ON log_item.`user_id` = user.`id`]]>
+     INNER JOIN `transaction` transaction ON item.`id` = transaction.`item_id`,
+     `user` user]]>
 	</queryString>
 	<field name="category_id" class="java.lang.Integer"/>
 	<field name="category_name" class="java.lang.String"/>
@@ -42,7 +41,6 @@ FROM
 	<field name="log_item_idlog" class="java.lang.Integer"/>
 	<field name="log_item_tgl_Masuk" class="java.sql.Timestamp"/>
 	<field name="log_item_item_id" class="java.lang.Integer"/>
-	<field name="log_item_user_id" class="java.lang.Integer"/>
 	<field name="transaction_id" class="java.lang.Integer"/>
 	<field name="transaction_tanggal" class="java.sql.Timestamp"/>
 	<field name="transaction_transactioncol" class="java.lang.String"/>
@@ -57,38 +55,54 @@ FROM
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="79" uuid="fb8db2eb-6ad3-4158-a2b8-be7a19cccbed"/>
+				<reportElement x="0" y="0" width="555" height="79" uuid="73d5b309-cefc-4a3b-9664-13309aee3c3d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="22"/>
 				</textElement>
-				<text><![CDATA[Laporan Hasil Penjualan per-Item]]></text>
+				<text><![CDATA[Laporan Hasil Penjualan per-Hari]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch">
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="455" y="0" width="100" height="20" uuid="0274b583-71fd-4edf-b663-9867f7ff798e"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="61" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="0" width="555" height="125" uuid="8c950135-1b05-4994-ab51-d6f0a9beba67"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{category_name}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{transaction_tanggal}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{item_nama}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
-			<textField>
-				<reportElement x="228" y="34" width="100" height="20" uuid="9fec9b8f-47a0-4347-a463-7a1c49052b8d"/>
-				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>

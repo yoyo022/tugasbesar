@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Int Lab">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jasperreports_5_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jasperreports-5.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tubes/img/pringlessourcream.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tubes_VENDING.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/Tubes_VENDING.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tubes_VENDING.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/Tubes_VENDING.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/ItemFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/ItemFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/controller/KlikFormController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/view/ItemForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tugasbesar/com/tubes/view/ItemForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/controller/ItemFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/controller/ItemFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/controller/KlikFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/cocacola.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/cocacola.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/pocarisweat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/silverqueen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/silverqueen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/silverqueen2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/silverqueen2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/sprite.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/img/sprite.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehbotol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehkotak.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/img/tehpucukharum.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/view/ItemForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/view/ItemForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tubes/view/MainForm2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tubes/view/MainForm2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tugasbesar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tugasbesar.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties converted="true" />
+    <breakpoint_rules converted="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="JavaFxApplication" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="hibernate-configuration-5.2" />
+        <option value="hibernate-main-5.2" />
+        <option value="FxmlFile" />
+        <option value="CSS File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\Program Files\Project\VendingMachine\tugasbesar\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1TpDI9Oxj5GU6kHLDM7Oj7HpsKh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="7486845f-cfdb-4f69-9673-8a3d29ef7975" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="OverrideImplement.combined" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jasperreports-5.6.0.jar!/" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.tubes.entity" />
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Program Files\Project\VendingMachine\tugasbesar\src\com\tubes" />
+      <recent name="D:\Program Files\Project\VendingMachine\tugasbesar\src\com\tubes\view" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tubes.Main" />
+      <module name="tugasbesar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tubes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="tugasbesar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+      <created>1359379246138</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1359379246138</updated>
+      <workItem from="1359379250712" duration="1302000" />
+      <workItem from="1574058860542" duration="1269000" />
+      <workItem from="1574064602351" duration="3271000" />
+      <workItem from="1574148062199" duration="8094000" />
+      <workItem from="1574220647816" duration="8962000" />
+      <workItem from="1574256263868" duration="735000" />
+      <workItem from="1574317815834" duration="8709000" />
+      <workItem from="1574407261813" duration="6503000" />
+      <workItem from="1574507118551" duration="1920000" />
+      <workItem from="1574569099598" duration="2049000" />
+      <workItem from="1574579843341" duration="9136000" />
+      <workItem from="1574764139575" duration="11115000" />
+      <workItem from="1574845539583" duration="1599000" />
+      <workItem from="1575282213271" duration="5068000" />
+      <workItem from="1575374437593" duration="3522000" />
+      <workItem from="1575442382989" duration="3065000" />
+      <workItem from="1575607508158" duration="861000" />
+      <workItem from="1575704361816" duration="1585000" />
+      <workItem from="1575860989671" duration="3965000" />
+      <workItem from="1575871905574" duration="8470000" />
+      <workItem from="1576210275593" duration="5468000" />
+      <workItem from="1576233061794" duration="9573000" />
+      <workItem from="1576313395817" duration="7256000" />
+      <workItem from="1576327754111" duration="2139000" />
+      <workItem from="1576411364122" duration="4006000" />
+      <workItem from="1576503936712" duration="2288000" />
+      <workItem from="1576558909938" duration="953000" />
+      <workItem from="1576832863186" duration="3468000" />
+      <workItem from="1577156611452" duration="3444000" />
+    </task>
+    <task id="LOCAL-00001" summary="Int Lab">
+      <created>1574065012108</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574065012108</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="Int Lab" />
+    <option name="LAST_COMMIT_MESSAGE" value="Int Lab" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="183" key="#Project_Structure" timestamp="1576411602510">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="183" key="#Project_Structure/0.0.1920.1050@0.0.1920.1050" timestamp="1576411602510" />
+    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576413460347">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1576413460347" />
+    <state x="709" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577164041149">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="709" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1577164041149" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1576837026114">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1576837026114" />
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom" timestamp="1577163557264">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="192" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
+    <state width="1877" height="192" key="GridCell.Tab.0.center" timestamp="1577163557264">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="192" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
+    <state width="1877" height="192" key="GridCell.Tab.0.left" timestamp="1577163557264">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="192" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
+    <state width="1877" height="192" key="GridCell.Tab.0.right" timestamp="1577163557264">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="192" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1577163557264" />
+    <state x="461" y="167" key="SettingsEditor" timestamp="1576837029374">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1576837029374" />
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1577156611329">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="656" y="348" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1577156611329" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+</project>
