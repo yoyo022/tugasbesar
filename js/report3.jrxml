@@ -80,15 +80,15 @@ FROM
 		<band height="125" splitType="Stretch">
 			<barChart>
 				<chart>
-					<reportElement x="0" y="0" width="555" height="125" uuid="17962cc8-ab5d-41c2-8c2c-65fef46179e7"/>
+					<reportElement x="180" y="14" width="200" height="100" uuid="4e2718e6-1eda-4383-bb35-b40393703b5f"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
 				</chart>
 				<categoryDataset>
 					<categorySeries>
-						<seriesExpression><![CDATA[$F{item_nama}]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{category_name}]]></categoryExpression>
+						<seriesExpression><![CDATA[$F{category_name}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{item_nama}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{totalTransaction}]]></valueExpression>
 					</categorySeries>
 				</categoryDataset>

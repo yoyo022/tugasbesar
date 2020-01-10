@@ -1,5 +1,7 @@
 package com.tubes.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -13,6 +15,8 @@ public class LogItemEntity {
     private UserEntity userByUserId;
 
     @Id
+    @GenericGenerator(strategy = "increment", name = "incrementId")
+    @GeneratedValue(generator = "incrementId")
     @Column(name = "idlog", nullable = false)
     public int getIdlog() {
         return idlog;
@@ -45,16 +49,16 @@ public class LogItemEntity {
     public int hashCode() {
         return Objects.hash(idlog, tglMasuk);
     }
-
-    @ManyToOne
-    @JoinColumn(name = "item_id", referencedColumnName = "id")
-    public ItemEntity getItemByItemId() {
-        return itemByItemId;
-    }
-
-    public void setItemByItemId(ItemEntity itemByItemId) {
-        this.itemByItemId = itemByItemId;
-    }
+//
+//    @ManyToOne
+//    @JoinColumn(name = "item_id", referencedColumnName = "id")
+//    public ItemEntity getItemByItemId() {
+//        return itemByItemId;
+//    }
+//
+//    public void setItemByItemId(ItemEntity itemByItemId) {
+//        this.itemByItemId = itemByItemId;
+//    }
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")

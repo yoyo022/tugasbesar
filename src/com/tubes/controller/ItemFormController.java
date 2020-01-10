@@ -4,6 +4,7 @@ import com.tubes.Main;
 import com.tubes.dao.CategoriesDaoImpl;
 import com.tubes.dao.ItemsDaoImpl;
 import com.tubes.dao.LogItemDao;
+import com.tubes.dao.UserDaoImpl;
 import com.tubes.entity.CategoryEntity;
 import com.tubes.entity.ItemEntity;
 import com.tubes.entity.LogItemEntity;
@@ -268,11 +269,12 @@ public class ItemFormController implements Initializable {
             boolean notFound = getItemEntities().stream().filter(d -> d.getId() == item.getId()).count() == 0;
             if(notFound){
                 getItemsDao().addData(item);
+
                 LogItemEntity logs =  new LogItemEntity();
                 Timestamp tmp = new Timestamp(System.currentTimeMillis());
                 logs.setTglMasuk(tmp);
                 logs.setUserByUserId(getUser());
-                logs.setItemByItemId(item);
+//                logs.setItemByItemId(item);
                 refresh();
                 clearField();
                 getLogDao().addData(logs);
@@ -312,7 +314,7 @@ public class ItemFormController implements Initializable {
             Timestamp tmp = new Timestamp(System.currentTimeMillis());
             logs.setTglMasuk(tmp);
             logs.setUserByUserId(getUser());
-            logs.setItemByItemId(itemSelected);
+//            logs.setItemByItemId(itemSelected);
             logDao.addData(logs);
             refresh();
             clearField();

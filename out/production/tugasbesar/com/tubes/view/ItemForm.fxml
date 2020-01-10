@@ -13,8 +13,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="Report">
             <items>
-              <MenuItem fx:id="report1" mnemonicParsing="false" onAction="#showReportItem" text="Show Report by Item" />
-                  <MenuItem fx:id="report2" mnemonicParsing="false" onAction="#showReportDate" text="Show Report by Date" />
+              <MenuItem fx:id="reportItem" mnemonicParsing="false" onAction="#actShowReportItem" text="Report by Item" />
+                  <MenuItem fx:id="reportMonth" mnemonicParsing="false" onAction="#actShowReportMonth" text="Report by Month" />
             </items>
           </Menu>
         </menus>
