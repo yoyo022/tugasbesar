@@ -389,11 +389,14 @@ public class MainFormController implements Initializable {
             mainStage.initModality(Modality.APPLICATION_MODAL);
             mainStage.setScene(new Scene(root));
             mainStage.show();
+//
+//            Stage mainStage2 = (Stage) vBoxx.getScene().getWindow();
+//            mainStage2.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    private void refresh(){
+    public void refresh(){
 //        getItemEntities().clear();
 //        getItemEntities().addAll(getItemsDao().showAll());
         tilePane.getChildren().clear();

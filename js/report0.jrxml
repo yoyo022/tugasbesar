@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report0" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b68fc200-5ddb-478c-9c0e-09a1b8111c0a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     category.`id` AS category_id,
+     category.`name` AS category_name,
+     item.`id` AS item_id,
+     item.`nama` AS item_nama,
+     item.`harga` AS item_harga,
+     item.`quantity` AS item_quantity,
+     item.`foto` AS item_foto,
+     item.`category_id` AS item_category_id,
+     transaction.`id` AS transaction_id,
+     (SELECT COUNT(T.id) FROM transaction T WHERE T.item_id=item.id) as totalTransaction,
+     transaction.`tanggal` AS transaction_tanggal,
+     transaction.`item_id` AS transaction_item_id
+FROM
+     `category` category INNER JOIN `item` item ON category.`id` = item.`category_id`
+     INNER JOIN `transaction` transaction ON item.`id` = transaction.`item_id`]]>
+	</queryString>
+	<field name="category_id" class="java.lang.Integer"/>
+	<field name="category_name" class="java.lang.String"/>
+	<field name="item_id" class="java.lang.Integer"/>
+	<field name="item_nama" class="java.lang.String"/>
+	<field name="item_harga" class="java.lang.Double"/>
+	<field name="item_quantity" class="java.lang.Integer"/>
+	<field name="item_foto" class="java.lang.String"/>
+	<field name="item_category_id" class="java.lang.Integer"/>
+	<field name="transaction_id" class="java.lang.Integer"/>
+	<field name="totalTransaction" class="java.lang.Long"/>
+	<field name="transaction_tanggal" class="java.sql.Timestamp"/>
+	<field name="transaction_item_id" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="e196930c-0341-40e7-b33f-f16331bf9925"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[Laporan Hasil Penjualan per-Item]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="e2d0fa5c-d733-4182-8e4d-23d82bb074ff"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="135" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT}==1]]></printWhenExpression>
+			<barChart>
+				<chart>
+					<reportElement x="0" y="0" width="555" height="125" uuid="dae6d0a9-dd25-4b98-85ab-a2c4c9c30336"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{category_name}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{item_nama}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{totalTransaction}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="226" y="34" width="100" height="20" uuid="e6d150fa-15b9-4205-89ec-57877ee38cbc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

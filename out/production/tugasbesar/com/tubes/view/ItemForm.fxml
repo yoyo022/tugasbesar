@@ -14,7 +14,6 @@
           <Menu mnemonicParsing="false" text="Report">
             <items>
               <MenuItem fx:id="reportItem" mnemonicParsing="false" onAction="#actShowReportItem" text="Report by Item" />
-                  <MenuItem fx:id="reportMonth" mnemonicParsing="false" onAction="#actShowReportMonth" text="Report by Month" />
             </items>
           </Menu>
         </menus>

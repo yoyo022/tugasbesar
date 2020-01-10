@@ -409,7 +409,8 @@ public class ItemFormController implements Initializable {
     @FXML
     private void actShowReportItem(ActionEvent actionEvent) {
         try {
-            JasperPrint jp = JasperFillManager.fillReport("js/report1.jasper", new HashMap<>(), Konektor.connection());
+            Map param = new HashMap();
+            JasperPrint jp = JasperFillManager.fillReport("js/report0.jasper", param, Konektor.connection());
             JasperViewer viewer = new JasperViewer(jp,false);
             viewer.setTitle("Department Report by Item");
             viewer.setVisible(true);

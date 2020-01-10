@@ -110,8 +110,10 @@ public class LoginFormController implements Initializable {
 
     @FXML
     private void btnCancel(ActionEvent actionEvent) {
+
         Stage loginStage = (Stage) loginVbox.getScene().getWindow();
         loginStage.close();
+//        mainFormController.refresh();
     }
 
     public void setMainFormController(MainFormController mainFormController) {
